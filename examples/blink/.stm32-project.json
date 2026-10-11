@@ -1,5 +1,5 @@
 {
-  "name": "STM32G431CB · Register-Blink",
+  "name": "01 · PB1 einfach blinken",
   "config": {
     "controller": "STM32G431CB",
     "cpu": "cortex-m4",

@@ -4,24 +4,38 @@
   "projects": [
     {
       "id": "blink",
-      "name": "STM32G431CB · Register-Blink",
-      "description": "LED-Beispiel an PB1, ST-Registerheader und CMSIS. Verdrahtung vor Flash prüfen.",
+      "name": "01 · PB1 einfach blinken",
+      "description": "GPIO verstehen: PB1 mit einfacher Warteschleife, zentrale Einstellungen und Versuchsanleitung.",
       "archive": "packages/collections/stm32/blink.zip",
-      "sha256": "74b333a05602e4a813809e87e969c2584f2b9af372f36c22f94a91dc1e36b13a"
+      "sha256": "325b64ea74a1af25a47f39ae6d09420d18feac22b5736a1087dbf827d1d72958"
+    },
+    {
+      "id": "timer",
+      "name": "02 · PB1 mit TIM6-Interrupt",
+      "description": "500-ms-Umschalten per Hardwaretimer; Prescaler, Auto-Reload, NVIC und WFI Schritt für Schritt.",
+      "archive": "packages/collections/stm32/timer.zip",
+      "sha256": "dc14e9eb5d25651ba2f1bedd9e02eb7e21f8143d860b2aad69c117af3d2fd79e"
+    },
+    {
+      "id": "usart1",
+      "name": "03 · USART1 senden und Echo",
+      "description": "PA9/PA10 · 115200 Baud · 8N1. Textausgabe, Empfang, Echo und WebSerial-Anleitung.",
+      "archive": "packages/collections/stm32/usart1.zip",
+      "sha256": "ce2a3af9605343592d9aa2ecac8159c09313742f7bd432ecf918464af948f563"
     },
     {
       "id": "live",
       "name": "STM32G431CB · Live-Variablen",
       "description": "Klasse, Struktur, Enum und Array für SWD-Watches. Debug-Profil verwenden.",
       "archive": "packages/collections/stm32/live.zip",
-      "sha256": "48064e74448e08b4f2195b24dac057f941a5514e4570b1008434d2722345871c"
+      "sha256": "93f18558ee0c9c8142eda654668b56707936c756b72bcc75ccad7529cbab3ce5"
     },
     {
       "id": "empty",
       "name": "STM32G431CB · Leeres Projekt",
       "description": "Minimaler Einstieg mit Original-ST-Registerdefinitionen, ohne Pin-Initialisierung.",
       "archive": "packages/collections/stm32/empty.zip",
-      "sha256": "39b47ba075a8fa2324b5e9093358248d66f6f94d9e26403bb17c2ce0f7a1da17"
+      "sha256": "55a41640b0386ebfc1597599140db7a89622cbe3eada546dbe89df43bb723981"
     }
   ]
 }
