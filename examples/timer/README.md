@@ -26,6 +26,10 @@ Der projektspezifische Vektoreintrag ist erforderlich: Nur eine C++-Funktion mit
 
 ## Debug und Versuche
 
+`TIM6_DAC_IRQHandler` in `main.cpp` ersetzt den weak-Dummy aus `startup.s`.
+Die Vektortabelle bleibt unverändert. Weitere Handler genauso mit `extern "C"`
+und ohne `weak` definieren; siehe `INTERRUPTS.md`.
+
 Debug bauen, flashen und starten. `timer_interrupts` und `led_on` sind als Watches vorbereitet. Bei einem Haltepunkt friert DBGMCU den Timer ein; im normalen Lauf zählt er weiter. Der interne RC-Oszillator bestimmt die Zeitgenauigkeit.
 
 - Intervall auf 100 ms ändern; Blinkperiode und Interruptanzahl vorhersagen.

@@ -14,7 +14,8 @@
     ],
     "cStandard": "c17",
     "standard": "c++17",
-    "optimization": "s"
+    "optimization": "s",
+    "debugOptimization": "0"
   },
   "watches": [
     "timer_interrupts",

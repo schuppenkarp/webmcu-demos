@@ -29,3 +29,7 @@ Die Projekte werden mit dem Browser-WASM-Compiler gebaut. Eine physische Hardwar
 ## Controllerprofile
 
 Unter controllers/ liegen versionierte JSON-Profile. WebMCU lädt sie über die GitHub-API und bietet sie im Controller-Dropdown bei der Projektanlage an. Eigene Profile werden im freigegebenen Arbeitsordner unter .webmcu/controllers/ gespeichert und haben Vorrang vor gleichnamigen öffentlichen Profilen. Ein Profil beschreibt CPU, Header, Startup-Vorlage und mehrere Speicherregionen. Ein neues Profil ersetzt kein passendes Startup-/Header-Paket oder die Hardwareabnahme.
+
+## Eigene IRQ-Handler
+
+Alle Beispiele enthalten die vollständige STM32G431-Vektortabelle mit ST-Namen. Ohne eigene Implementierung greifen weak-Dummys auf `Default_Handler` (Endlosschleife). Eine starke Definition wie `extern "C" void USART1_IRQHandler() { /* IRQ behandeln */ }` in einer `.cpp` ersetzt den Dummy automatisch. Kein `weak` oder `static` verwenden. Peripherie/NVIC separat konfigurieren und Interruptflags quittieren. Kurzanleitung: `INTERRUPTS.md` im Projekt; vollständiges Beispiel: TIM6-Demo.

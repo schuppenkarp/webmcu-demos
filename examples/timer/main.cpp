@@ -42,7 +42,8 @@ static void timer_init() {
     TIM6->CR1 = TIM_CR1_CEN; // Erst jetzt starten.
 }
 
-// 4. Kurzer Interrupt-Handler. Der passende Vektoreintrag steht in startup.s.
+// 4. Starke Definition ersetzt den weak-Dummy aus startup.s automatisch.
+// extern "C" sorgt auch in C++ fuer den exakten Namen in der Vektortabelle.
 // Diese Demo aktiviert keinen DAC, der sich dieselbe IRQ-Leitung teilen wuerde.
 extern "C" void TIM6_DAC_IRQHandler() {
     if (TIM6->SR & TIM_SR_UIF) {
