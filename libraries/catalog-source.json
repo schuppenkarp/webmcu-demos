@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "libraries": [
+    {
+      "id": "gpio",
+      "version": "1.0.0",
+      "title": "GPIO · Pins einfach bedienen",
+      "controller": "STM32G431CB",
+      "description": "Porttakt, Push-Pull/Open-Drain, Ein-/Ausgang, Pull-Widerstände, Geschwindigkeit und Alternate Function. Pinnummern 0–15; keine Bitmasken.",
+      "usage": "#include \"mcu_gpio.h\"\n\nPeripheralClockEnable(GPIOB);\nGPIO_Write(GPIOB, 1, false);  // Ausgangswert vor dem Umschalten setzen\nGPIO_Mode(GPIOB, 1, PushPull);\nGPIO_Pull(GPIOB, 1, NoPull);\nGPIO_Write(GPIOB, 1, true);\nGPIO_Toggle(GPIOB, 1);\n\n// Eingang: GPIO_Mode(GPIOA, 0, Input);\n// GPIO_Pull(GPIOA, 0, PullUp);\n// bool high = GPIO_Read(GPIOA, 0);",
+      "names": ["mcu_gpio.c", "mcu_gpio.h"]
+    },
+    {
+      "id": "uart",
+      "version": "1.0.0",
+      "title": "UART · Text und Bytes",
+      "controller": "STM32G431CB",
+      "description": "USART1/2/3, UART4 und LPUART1. 8N1 mit PCLK, einfache Textausgabe und nicht blockierende Byte-API. Pins separat konfigurieren. Pollbudget ist kein Millisekunden-Timeout.",
+      "usage": "#include \"mcu_uart.h\"\n\n// Pins vorher passend zur Instanz konfigurieren!\n// USART1: PA9 TX, PA10 RX, AF7; PCLK2 = 16 MHz im Reset-Demo.\nif (!UART_Init(USART1, 16000000, 115200)) { /* Fehler behandeln */ }\nUART_Print(USART1, \"Hallo!\\r\\n\", 100000);\nuint8_t byte;\nif (UART_TryRead(USART1, &byte) == UART_Ok) {\n  UART_Write(USART1, &byte, 1, 100000);\n}\n// Andere Instanz: UART_Init(USART2, pclk1Hz, baud);\n// UART_Flush wartet zusätzlich bis zur letzten gesendeten Stoppbit-Zeit.",
+      "names": ["mcu_uart.c", "mcu_uart.h"]
+    },
+    {
+      "id": "can",
+      "version": "1.0.0",
+      "title": "CAN · Senden und Empfangen",
+      "controller": "STM32G431CB",
+      "description": "Klassisches CAN auf FDCAN1: 11-/29-Bit-IDs, 0–8 Bytes, alle IDs angenommen. Drei TX-/RX-Plätze, Polling, Bus-Off-/Überlaufmeldung. Internes Loopback für den Einstieg. Kein CAN FD.",
+      "usage": "#include \"mcu_can.h\"\n\nif (!CAN_Init(FDCAN1, 16000000, 500000, CAN_InternalLoopback)) { /* Fehler */ }\nCAN_Message tx = {0};\ntx.id = 0x123;\ntx.length = 2;\ntx.data[0] = 42;\ntx.data[1] = 7;\nCAN_Result result = CAN_Send(FDCAN1, &tx); // Ok = eingereiht, nicht ACK\nCAN_Message rx;\nif (CAN_Receive(FDCAN1, &rx) == CAN_Ok) { /* rx.data verwenden */ }\n// CAN_Normal: PB8 RX + PB9 TX, AF9, externer CAN-Transceiver nötig.\n// Polling regelmäßig aufrufen; CAN_TakeOverflow meldet verlorene Frames.",
+      "names": ["mcu_can.c", "mcu_can.h"]
+    }
+  ]
+}

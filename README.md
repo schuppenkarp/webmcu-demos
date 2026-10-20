@@ -11,6 +11,12 @@ In WebMCU Studio unter Sammlungen auf **Demos laden** klicken und ein Projekt ö
 - **[03 · USART1 senden und Echo](examples/usart1/README.md)**: PA9/PA10, 115200 Baud, 8N1; Begrüßung, Byte-Echo und Empfangsfehlerzähler. Anleitung für den WebSerial-Monitor enthalten.
 - **live**: SWD-Watches mit Klasse, Struktur, Enum und Array; Debug-Profil verwenden.
 - **empty**: Registerprojekt ohne Pin-Initialisierung.
+- **04 · GPIO-Bibliothek**: PB1 mit lesbarer Pin-API, jeweils `.c` + `.h`.
+- **05 · UART-Bibliothek**: USART1-Echo; API auch für USART2/3, UART4 und LPUART1.
+- **06 · CAN-Bibliothek**: klassisches CAN, internes Loopback oder echter Bus, alle IDs.
+
+**[Versionierte Bibliotheken](libraries/README.md)**: In der IDE über Projektmenü ⋯ → Bibliotheken laden.
+Revision 1.0.0 wird im Projekt festgehalten; lokale Änderungen bleiben geschützt.
 
 Lesbare Quellen liegen unter examples/. Das Manifest webmcu-collection.json verweist auf eigenständige Projekt-ZIPs mit SHA-256. Nach Änderungen Quellen und ZIPs gemeinsam aktualisieren.
 
@@ -18,7 +24,7 @@ Die drei Einstiegsdemos gliedern Einstellungen, Initialisierung und Hauptprogram
 
 ## Entwicklungsstand und Rechte
 
-Die Projekte werden mit dem Browser-WASM-Compiler gebaut. Eine physische Hardwareabnahme ist noch offen. ST- und Arm-Dateien behalten ihre enthaltenen Lizenztexte unter include/ und ihre Copyright-Hinweise. Für eigenen Beispielcode ist derzeit keine zusätzliche Open-Source-Lizenz vergeben.
+Die Projekte werden mit dem Browser-WASM-Compiler gebaut. Eine physische Hardwareabnahme ist noch offen. ST- und Arm-Dateien behalten ihre enthaltenen Lizenztexte unter include/ und ihre Copyright-Hinweise. Die neuen Registerbibliotheken unter libraries/ stehen unter MIT (libraries/LICENSE); für die älteren Beispiele ist keine zusätzliche Open-Source-Lizenz vergeben.
 
 ## Controllerprofile
 

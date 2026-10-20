@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "libraries": [
+    {
+      "id": "gpio",
+      "version": "1.0.0",
+      "repository": "schuppenkarp/webmcu-demos",
+      "commit": null,
+      "files": [
+        {
+          "path": "lib/gpio/mcu_gpio.c",
+          "sha256": "71a1db916fcc14fa1666271d0906c6db5ac9afd79b26392246aa0ba46c456d0f"
+        },
+        {
+          "path": "lib/gpio/mcu_gpio.h",
+          "sha256": "c403a746c518a4bfb5f6425b5599f221cec5108279dbafb41da655df83883340"
+        }
+      ]
+    },
+    {
+      "id": "uart",
+      "version": "1.0.0",
+      "repository": "schuppenkarp/webmcu-demos",
+      "commit": null,
+      "files": [
+        {
+          "path": "lib/uart/mcu_uart.c",
+          "sha256": "c446e7ce8261ad56bec93d6a0146c15a1fd903094005e9f3d561c30ae09b1699"
+        },
+        {
+          "path": "lib/uart/mcu_uart.h",
+          "sha256": "a4c3385ac9919bcd5eb28e4396460eb040fb2078078a08e8c228555562658447"
+        }
+      ]
+    }
+  ]
+}

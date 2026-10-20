@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "libraries": [
+    {
+      "id": "gpio",
+      "version": "1.0.0",
+      "repository": "schuppenkarp/webmcu-demos",
+      "commit": null,
+      "files": [
+        {
+          "path": "lib/gpio/mcu_gpio.c",
+          "sha256": "71a1db916fcc14fa1666271d0906c6db5ac9afd79b26392246aa0ba46c456d0f"
+        },
+        {
+          "path": "lib/gpio/mcu_gpio.h",
+          "sha256": "c403a746c518a4bfb5f6425b5599f221cec5108279dbafb41da655df83883340"
+        }
+      ]
+    }
+  ]
+}
