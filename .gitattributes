@@ -1,3 +1,4 @@
 # Package SHA-256 is over exact published bytes.
 libraries/** -text
 webmcu-libraries.json -text
+examples/*-library/** -text
