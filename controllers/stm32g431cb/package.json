@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "controller": "stm32g431cb",
+  "version": "1.0.0",
+  "repository": "schuppenkarp/webmcu-demos",
+  "files": [
+    {
+      "source": "controllers/stm32g431cb/includes/CMSIS-LICENSE.txt",
+      "target": "include/CMSIS-LICENSE.txt",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    {
+      "source": "controllers/stm32g431cb/includes/cmsis_compiler.h",
+      "target": "include/cmsis_compiler.h",
+      "sha256": "b51963d271c1571ca3463654c76aa7ea50c4eac5d0a2710df10414ac64d9e0f8"
+    },
+    {
+      "source": "controllers/stm32g431cb/includes/cmsis_gcc.h",
+      "target": "include/cmsis_gcc.h",
+      "sha256": "43bfd1fe69fbbc2ca70aaf7d43cc3e20f16e0c7f66e1bdef9b51af6dc14b2617"
+    },
+    {
+      "source": "controllers/stm32g431cb/includes/cmsis_version.h",
+      "target": "include/cmsis_version.h",
+      "sha256": "184c19fd3ee73632edf35a0b4d49cd48be75fbf49e6ccb19d9db05fa83bea4b3"
+    },
+    {
+      "source": "controllers/stm32g431cb/includes/core_cm4.h",
+      "target": "include/core_cm4.h",
+      "sha256": "f5b63d52dd1557b15ca414cb59c264f595a7b5669db2a5878dffe22f4caedc8c"
+    },
+    {
+      "source": "controllers/stm32g431cb/includes/mpu_armv7.h",
+      "target": "include/mpu_armv7.h",
+      "sha256": "29206b52ee02290ed6f5a5415ebd4187de802cf176d9b3cb844390d8e5571372"
+    },
+    {
+      "source": "controllers/stm32g431cb/includes/ST-LICENSE.md",
+      "target": "include/ST-LICENSE.md",
+      "sha256": "44fd163ed2e04fe99f519f1093c2c39b21d9cc9371071de902ff0c2c8c3c57dc"
+    },
+    {
+      "source": "controllers/stm32g431cb/includes/stm32g431xx.h",
+      "target": "include/stm32g431xx.h",
+      "sha256": "24e2bc3be8a04bb5f2f46e43f52ea9ceeeb003cd8d7b7f38c0f62905d43f1411"
+    },
+    {
+      "source": "controllers/stm32g431cb/includes/system_stm32g4xx.h",
+      "target": "include/system_stm32g4xx.h",
+      "sha256": "36304c07e9cee84064015ebd7ae517af6f466c466c1bbf5e342c57a296601db2"
+    },
+    {
+      "source": "controllers/stm32g431cb/src/startup.s",
+      "target": "startup.s",
+      "sha256": "7347a6764070e448a48929e24501742d5db64898cfaaab45e6a16653d374ce65"
+    },
+    {
+      "source": "controllers/stm32g431cb/linker/stm32g431cb.ld",
+      "target": "stm32g431cb.ld",
+      "sha256": "c735e239f3934795ecd9ae4fe98ce9f572b28f11b62008c36fee4c50643aacd3"
+    }
+  ]
+}

@@ -72,6 +72,54 @@
         "mcu_can.cpp",
         "mcu_can.h"
       ]
+    },
+    {
+      "id": "gpio",
+      "version": "3.0.0",
+      "title": "GPIO · Pins einfach bedienen",
+      "controller": "STM32G431CB",
+      "description": "C++-Klasse GPIO. Porttakt, Push-Pull/Open-Drain, Ein-/Ausgang, Pull-Widerstände, Geschwindigkeit und Alternate Function. Pinnummern 0–15; keine Bitmasken. Gemeinsame API; STM32G431CB-Adapter.",
+      "usage": "#include \"mcu_gpio.h\"\n\nGPIO led(GPIO::Port::B, 1);\nled.enableClock();\nled.write(false);\nled.mode(GPIO::PushPull);\nled.pull(GPIO::NoPull);\nled.toggle();",
+      "names": [
+        "mcu_gpio.h",
+        "mcu_gpio.cpp"
+      ],
+      "sourcePaths": [
+        "libraries/gpio/3.0.0/mcu_gpio.h",
+        "controllers/stm32g431cb/libraries/gpio/3.0.0/mcu_gpio.cpp"
+      ]
+    },
+    {
+      "id": "uart",
+      "version": "3.0.0",
+      "title": "UART · Text und Bytes",
+      "controller": "STM32G431CB",
+      "description": "C++-Klasse UART. USART1/2/3, UART4 und LPUART1. 8N1 mit PCLK, einfache Textausgabe und nicht blockierende Byte-API. Pins separat konfigurieren. Pollbudget ist kein Millisekunden-Timeout. Gemeinsame API; STM32G431CB-Adapter.",
+      "usage": "#include \"mcu_uart.h\"\n\nUART serial(UART::Instance::Port1);\n// Configure PA9/PA10 AF7 first. Actual PCLK2 = 16 MHz.\nif (serial.begin(16000000, 115200)) {\n  serial.print(\"Hallo\\r\\n\", 100000);\n  uint8_t byte;\n  if (serial.tryRead(byte) == UART::Ok) serial.tryWrite(byte);\n}",
+      "names": [
+        "mcu_uart.h",
+        "mcu_uart.cpp"
+      ],
+      "sourcePaths": [
+        "libraries/uart/3.0.0/mcu_uart.h",
+        "controllers/stm32g431cb/libraries/uart/3.0.0/mcu_uart.cpp"
+      ]
+    },
+    {
+      "id": "can",
+      "version": "3.0.0",
+      "title": "CAN · Senden und Empfangen",
+      "controller": "STM32G431CB",
+      "description": "C++-Klasse CAN. Klassisches CAN auf FDCAN1: 11-/29-Bit-IDs, 0–8 Bytes, alle IDs angenommen. Drei TX-/RX-Plätze, Polling, Bus-Off-/Überlaufmeldung. Internes Loopback für den Einstieg. Kein CAN FD. Gemeinsame API; STM32G431CB-Adapter.",
+      "usage": "#include \"mcu_can.h\"\n\nCAN bus(CAN::Instance::Port1);\nif (bus.begin(16000000, 500000, CAN::InternalLoopback)) {\n  CAN::Message frame;\n  frame.id = 0x123;\n  frame.length = 1;\n  frame.data[0] = 42;\n  bus.send(frame);\n  CAN::Message received;\n  if (bus.receive(received) == CAN::Ok) { /* use received.data */ }\n}",
+      "names": [
+        "mcu_can.h",
+        "mcu_can.cpp"
+      ],
+      "sourcePaths": [
+        "libraries/can/3.0.0/mcu_can.h",
+        "controllers/stm32g431cb/libraries/can/3.0.0/mcu_can.cpp"
+      ]
     }
   ]
 }

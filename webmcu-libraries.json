@@ -11,12 +11,12 @@
       "files": [
         {
           "name": "mcu_gpio.c",
-          "path": "libraries/gpio/1.0.0/mcu_gpio.c",
+          "path": "controllers/stm32g431cb/libraries/gpio/1.0.0/mcu_gpio.c",
           "sha256": "71a1db916fcc14fa1666271d0906c6db5ac9afd79b26392246aa0ba46c456d0f"
         },
         {
           "name": "mcu_gpio.h",
-          "path": "libraries/gpio/1.0.0/mcu_gpio.h",
+          "path": "controllers/stm32g431cb/libraries/gpio/1.0.0/mcu_gpio.h",
           "sha256": "c403a746c518a4bfb5f6425b5599f221cec5108279dbafb41da655df83883340"
         }
       ]
@@ -31,12 +31,12 @@
       "files": [
         {
           "name": "mcu_uart.c",
-          "path": "libraries/uart/1.0.0/mcu_uart.c",
+          "path": "controllers/stm32g431cb/libraries/uart/1.0.0/mcu_uart.c",
           "sha256": "c446e7ce8261ad56bec93d6a0146c15a1fd903094005e9f3d561c30ae09b1699"
         },
         {
           "name": "mcu_uart.h",
-          "path": "libraries/uart/1.0.0/mcu_uart.h",
+          "path": "controllers/stm32g431cb/libraries/uart/1.0.0/mcu_uart.h",
           "sha256": "a4c3385ac9919bcd5eb28e4396460eb040fb2078078a08e8c228555562658447"
         }
       ]
@@ -51,12 +51,12 @@
       "files": [
         {
           "name": "mcu_can.c",
-          "path": "libraries/can/1.0.0/mcu_can.c",
+          "path": "controllers/stm32g431cb/libraries/can/1.0.0/mcu_can.c",
           "sha256": "bb8af4bbe8bf80feee8fd6fbba61dc5e1e3fe24b529d796db64a092424c5aff5"
         },
         {
           "name": "mcu_can.h",
-          "path": "libraries/can/1.0.0/mcu_can.h",
+          "path": "controllers/stm32g431cb/libraries/can/1.0.0/mcu_can.h",
           "sha256": "60d03551e2a8b0ac75338fc8893fbe687db1a09851c06007a956169dc4055fe6"
         }
       ]
@@ -71,12 +71,12 @@
       "files": [
         {
           "name": "mcu_gpio.cpp",
-          "path": "libraries/gpio/2.0.0/mcu_gpio.cpp",
+          "path": "controllers/stm32g431cb/libraries/gpio/2.0.0/mcu_gpio.cpp",
           "sha256": "07485bba26016102c6407ceb2b42a3e43da85715d08a7f685143e651a865b8fc"
         },
         {
           "name": "mcu_gpio.h",
-          "path": "libraries/gpio/2.0.0/mcu_gpio.h",
+          "path": "controllers/stm32g431cb/libraries/gpio/2.0.0/mcu_gpio.h",
           "sha256": "c300740f87e2bc57a4d41cad3f778781f034407317e417a453507bff13864163"
         }
       ]
@@ -91,12 +91,12 @@
       "files": [
         {
           "name": "mcu_uart.cpp",
-          "path": "libraries/uart/2.0.0/mcu_uart.cpp",
+          "path": "controllers/stm32g431cb/libraries/uart/2.0.0/mcu_uart.cpp",
           "sha256": "3e92eace95fc07e954a1ee6c2612c313062736ae3653925e885a34cabdeaacb2"
         },
         {
           "name": "mcu_uart.h",
-          "path": "libraries/uart/2.0.0/mcu_uart.h",
+          "path": "controllers/stm32g431cb/libraries/uart/2.0.0/mcu_uart.h",
           "sha256": "e06514b0bee61e81543083a7d79835428d0fa1ecd04423596bb0c474f76b0cc3"
         }
       ]
@@ -111,13 +111,73 @@
       "files": [
         {
           "name": "mcu_can.cpp",
-          "path": "libraries/can/2.0.0/mcu_can.cpp",
+          "path": "controllers/stm32g431cb/libraries/can/2.0.0/mcu_can.cpp",
           "sha256": "ced6fea96053b651929c5b1bbc8362e6431927c381b469a030eae313615cb050"
         },
         {
           "name": "mcu_can.h",
-          "path": "libraries/can/2.0.0/mcu_can.h",
+          "path": "controllers/stm32g431cb/libraries/can/2.0.0/mcu_can.h",
           "sha256": "152a3dd19c19664c31751675797e2e476eb87961ec654fde9e32173769cfd594"
+        }
+      ]
+    },
+    {
+      "id": "gpio",
+      "version": "3.0.0",
+      "title": "GPIO · Pins einfach bedienen",
+      "controller": "STM32G431CB",
+      "description": "C++-Klasse GPIO. Porttakt, Push-Pull/Open-Drain, Ein-/Ausgang, Pull-Widerstände, Geschwindigkeit und Alternate Function. Pinnummern 0–15; keine Bitmasken. Gemeinsame API; STM32G431CB-Adapter.",
+      "usage": "#include \"mcu_gpio.h\"\n\nGPIO led(GPIO::Port::B, 1);\nled.enableClock();\nled.write(false);\nled.mode(GPIO::PushPull);\nled.pull(GPIO::NoPull);\nled.toggle();",
+      "files": [
+        {
+          "name": "mcu_gpio.h",
+          "path": "libraries/gpio/3.0.0/mcu_gpio.h",
+          "sha256": "9af169774e7610c95addd046d4496cc42330eabe1220c8b164c7be6dc9bd1876"
+        },
+        {
+          "name": "mcu_gpio.cpp",
+          "path": "controllers/stm32g431cb/libraries/gpio/3.0.0/mcu_gpio.cpp",
+          "sha256": "bda2c8d59961f8d95914b89da3ce07ade70d59c3ef288360da77b2f7bb1b1414"
+        }
+      ]
+    },
+    {
+      "id": "uart",
+      "version": "3.0.0",
+      "title": "UART · Text und Bytes",
+      "controller": "STM32G431CB",
+      "description": "C++-Klasse UART. USART1/2/3, UART4 und LPUART1. 8N1 mit PCLK, einfache Textausgabe und nicht blockierende Byte-API. Pins separat konfigurieren. Pollbudget ist kein Millisekunden-Timeout. Gemeinsame API; STM32G431CB-Adapter.",
+      "usage": "#include \"mcu_uart.h\"\n\nUART serial(UART::Instance::Port1);\n// Configure PA9/PA10 AF7 first. Actual PCLK2 = 16 MHz.\nif (serial.begin(16000000, 115200)) {\n  serial.print(\"Hallo\\r\\n\", 100000);\n  uint8_t byte;\n  if (serial.tryRead(byte) == UART::Ok) serial.tryWrite(byte);\n}",
+      "files": [
+        {
+          "name": "mcu_uart.h",
+          "path": "libraries/uart/3.0.0/mcu_uart.h",
+          "sha256": "ae3486e04db1fce72341ac85131a0e805fb86f30163532ed5b19cf4b14ca5390"
+        },
+        {
+          "name": "mcu_uart.cpp",
+          "path": "controllers/stm32g431cb/libraries/uart/3.0.0/mcu_uart.cpp",
+          "sha256": "4cbb93a32a93725edb432bdd742a652b9959d66a91e954479e54cfdc01740378"
+        }
+      ]
+    },
+    {
+      "id": "can",
+      "version": "3.0.0",
+      "title": "CAN · Senden und Empfangen",
+      "controller": "STM32G431CB",
+      "description": "C++-Klasse CAN. Klassisches CAN auf FDCAN1: 11-/29-Bit-IDs, 0–8 Bytes, alle IDs angenommen. Drei TX-/RX-Plätze, Polling, Bus-Off-/Überlaufmeldung. Internes Loopback für den Einstieg. Kein CAN FD. Gemeinsame API; STM32G431CB-Adapter.",
+      "usage": "#include \"mcu_can.h\"\n\nCAN bus(CAN::Instance::Port1);\nif (bus.begin(16000000, 500000, CAN::InternalLoopback)) {\n  CAN::Message frame;\n  frame.id = 0x123;\n  frame.length = 1;\n  frame.data[0] = 42;\n  bus.send(frame);\n  CAN::Message received;\n  if (bus.receive(received) == CAN::Ok) { /* use received.data */ }\n}",
+      "files": [
+        {
+          "name": "mcu_can.h",
+          "path": "libraries/can/3.0.0/mcu_can.h",
+          "sha256": "63c09353e0ef5e1ad63b6e96197ab99779da776543de697742a113f75757d305"
+        },
+        {
+          "name": "mcu_can.cpp",
+          "path": "controllers/stm32g431cb/libraries/can/3.0.0/mcu_can.cpp",
+          "sha256": "4c74d288d11a2b5e6b0470cd65121a94830f345dd64dca0b8228291e11e6bf59"
         }
       ]
     }
