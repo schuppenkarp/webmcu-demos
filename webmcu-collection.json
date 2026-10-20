@@ -3,60 +3,39 @@
   "name": "WebMCU · STM32 Register-Demos",
   "projects": [
     {
-      "id": "blink",
-      "name": "01 · PB1 einfach blinken",
-      "description": "GPIO verstehen: PB1 mit einfacher Warteschleife, zentrale Einstellungen und Versuchsanleitung.",
-      "archive": "packages/collections/stm32/blink.zip",
-      "sha256": "e4fffda2436086e16da9424104bd6e60d4ebdfdfcc069e8e36807dcb86256e9c"
-    },
-    {
-      "id": "timer",
-      "name": "02 · PB1 mit TIM6-Interrupt",
-      "description": "500-ms-Umschalten per Hardwaretimer; Prescaler, Auto-Reload, NVIC und WFI Schritt für Schritt.",
-      "archive": "packages/collections/stm32/timer.zip",
-      "sha256": "b1875ef7f40b08e997463aae6099df8325dff9964b57e838d98a1e966e40c9a9"
-    },
-    {
-      "id": "usart1",
-      "name": "03 · USART1 senden und Echo",
-      "description": "PA9/PA10 · 115200 Baud · 8N1. Textausgabe, Empfang, Echo und WebSerial-Anleitung.",
-      "archive": "packages/collections/stm32/usart1.zip",
-      "sha256": "d53c680bf1b2b08f5b09cd19f655f589cd84354a13c0360c8a7db631852e8e20"
-    },
-    {
-      "id": "live",
-      "name": "STM32G431CB · Live-Variablen",
-      "description": "Klasse, Struktur, Enum und Array für SWD-Watches. Debug-Profil verwenden.",
-      "archive": "packages/collections/stm32/live.zip",
-      "sha256": "26c94323a6ec1d76eff74d5d96be7ba8e986f2fb9bb6d80f0f0987548d57b606"
-    },
-    {
-      "id": "empty",
-      "name": "STM32G431CB · Leeres Projekt",
-      "description": "Minimaler Einstieg mit Original-ST-Registerdefinitionen, ohne Pin-Initialisierung.",
-      "archive": "packages/collections/stm32/empty.zip",
-      "sha256": "db2130d87b2ffa5f016837c1e0c193ab305e9d147ed19658dd55de087b8822ea"
-    },
-    {
       "id": "gpio-library",
-      "name": "04 · GPIO-Bibliothek · PB1",
+      "name": "01 · GPIO-Bibliothek · PB1",
       "description": "C++-Klasse GPIO. Porttakt, Push-Pull/Open-Drain, Ein-/Ausgang, Pull-Widerstände, Geschwindigkeit und Alternate Function. Pinnummern 0–15; keine Bitmasken.",
       "archive": "packages/collections/stm32/gpio-library.zip",
-      "sha256": "0a7bd04c36b39633adbc30f5af1d128e47bab4021387a2c979a488ba3e6e0048"
+      "sha256": "8162220f21b234a16afd9a3ee89e19f36d00834e2a79aa51d4591deb2389dfd2"
     },
     {
       "id": "uart-library",
-      "name": "05 · UART-Bibliothek · USART1 Echo",
+      "name": "02 · UART-Bibliothek · USART1 Echo",
       "description": "C++-Klasse UART. USART1/2/3, UART4 und LPUART1. 8N1 mit PCLK, einfache Textausgabe und nicht blockierende Byte-API. Pins separat konfigurieren. Pollbudget ist kein Millisekunden-Timeout.",
       "archive": "packages/collections/stm32/uart-library.zip",
-      "sha256": "172725b81a81eacd0c83e01341c9d0a9a39b1de87c267109da99add2106e1ab3"
+      "sha256": "1eb69d7ce9c5503306538cc49f7c80a295dc34846f0443898e1d3d8060edac59"
     },
     {
       "id": "can-library",
-      "name": "06 · CAN-Bibliothek · Loopback / Bus",
+      "name": "03 · CAN-Bibliothek · Loopback / Bus",
       "description": "C++-Klasse CAN. Klassisches CAN auf FDCAN1: 11-/29-Bit-IDs, 0–8 Bytes, alle IDs angenommen. Drei TX-/RX-Plätze, Polling, Bus-Off-/Überlaufmeldung. Internes Loopback für den Einstieg. Kein CAN FD.",
       "archive": "packages/collections/stm32/can-library.zip",
-      "sha256": "9b4b430a538fa5e251e9f7d60de9408e44576019ce28c331f243ce9dfc77485d"
+      "sha256": "aabbf230bdc6b72e2212c4d7e12ce309f58ab6aa16f80de9181ec81372292105"
+    },
+    {
+      "id": "minimal-addresses",
+      "name": "04 · Mini-Blink · direkte Adressen",
+      "description": "PB1 direkt über Speicheradressen. Keine Includes, Bibliotheken oder Init-Funktionen.",
+      "archive": "packages/collections/stm32/minimal-addresses.zip",
+      "sha256": "51ab009841da3035d53acf808d6ca1b7487c48c9ee3171f9ce2923a83824a897"
+    },
+    {
+      "id": "minimal-registers",
+      "name": "05 · Mini-Blink · ST-Registernamen",
+      "description": "Derselbe PB1-Blinker mit RCC/ GPIOB und originalen ST-Registerdefinitionen.",
+      "archive": "packages/collections/stm32/minimal-registers.zip",
+      "sha256": "0c08a65ac6d8f4e763524c7bbf4e318596b18028d71d757cffa744dfd1bd272b"
     }
   ]
 }

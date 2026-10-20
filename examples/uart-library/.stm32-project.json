@@ -1,5 +1,5 @@
 {
-  "name": "05 · UART-Bibliothek · USART1 Echo",
+  "name": "02 · UART-Bibliothek · USART1 Echo",
   "config": {
     "controller": "STM32G431CB",
     "cpu": "cortex-m4",

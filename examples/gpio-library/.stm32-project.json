@@ -1,5 +1,5 @@
 {
-  "name": "04 · GPIO-Bibliothek · PB1",
+  "name": "01 · GPIO-Bibliothek · PB1",
   "config": {
     "controller": "STM32G431CB",
     "cpu": "cortex-m4",

@@ -1,5 +1,5 @@
 {
-  "name": "06 · CAN-Bibliothek · Loopback / Bus",
+  "name": "03 · CAN-Bibliothek · Loopback / Bus",
   "config": {
     "controller": "STM32G431CB",
     "cpu": "cortex-m4",

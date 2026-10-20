@@ -1,4 +1,4 @@
-# 04 · GPIO-Bibliothek · PB1
+# 01 · GPIO-Bibliothek · PB1
 
 C++-Klasse GPIO. Porttakt, Push-Pull/Open-Drain, Ein-/Ausgang, Pull-Widerstände, Geschwindigkeit und Alternate Function. Pinnummern 0–15; keine Bitmasken.
 

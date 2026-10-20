@@ -1,4 +1,4 @@
-# 05 · UART-Bibliothek · USART1 Echo
+# 02 · UART-Bibliothek · USART1 Echo
 
 C++-Klasse UART. USART1/2/3, UART4 und LPUART1. 8N1 mit PCLK, einfache Textausgabe und nicht blockierende Byte-API. Pins separat konfigurieren. Pollbudget ist kein Millisekunden-Timeout.
 

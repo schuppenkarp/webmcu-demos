@@ -1,4 +1,4 @@
-# 06 · CAN-Bibliothek · Loopback / Bus
+# 03 · CAN-Bibliothek · Loopback / Bus
 
 C++-Klasse CAN. Klassisches CAN auf FDCAN1: 11-/29-Bit-IDs, 0–8 Bytes, alle IDs angenommen. Drei TX-/RX-Plätze, Polling, Bus-Off-/Überlaufmeldung. Internes Loopback für den Einstieg. Kein CAN FD.
 
