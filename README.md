@@ -20,5 +20,22 @@ Die drei Bibliotheksbeispiele behalten den vollständigen Startup mit überschre
 Quellen unter examples/, vollständige Projekt-ZIPs mit SHA-256 in webmcu-collection.json.
 Eigene Sammlungen können zusätzlich verbunden werden. Frühere Beispiele bleiben in Git verfügbar.
 
+## Eigene Quellen
+
+In WebMCU unter **Bibliotheken → Quellen verwalten** weitere GitHub-Repositories
+oder lokale Ordner hinzufügen. Dieses Standardrepository bleibt daneben verfügbar.
+Ein lokaler Clone dieses Repositories kann ebenfalls als Ordnerquelle dienen.
+
+Eigene Quellen enthalten im Hauptordner `webmcu-libraries.json` und/oder
+`webmcu-collection.json` mit den darin referenzierten Dateien und SHA-256-Werten.
+Die hier enthaltenen Manifeste sind die Formatvorlage. Beim Laden werden beide
+Katalogarten geprüft und offline verfügbar gemacht. Beispielprojekte erscheinen
+anschließend auch unter **Neues Projekt**.
+
+Die gepflegten Library-Originale liegen unter `libraries/<id>/<revision>/`.
+Die Kopien unter `examples/` gehören zu eigenständig baubaren Beispielprojekten
+und werden daraus erzeugt. Neue Library-Inhalte erhalten eine neue Revision;
+bestehende Revisionen werden nicht überschrieben.
+
 Herstellerheader unter der jeweiligen ST-/CMSIS-Lizenz; siehe include/.
 Bibliotheken unter MIT, siehe libraries/LICENSE. Hardwareabnahme weiterhin offen.
