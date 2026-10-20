@@ -40,23 +40,23 @@
     {
       "id": "gpio-library",
       "name": "04 · GPIO-Bibliothek · PB1",
-      "description": "Porttakt, Push-Pull/Open-Drain, Ein-/Ausgang, Pull-Widerstände, Geschwindigkeit und Alternate Function. Pinnummern 0–15; keine Bitmasken.",
+      "description": "C++-Klasse GPIO. Porttakt, Push-Pull/Open-Drain, Ein-/Ausgang, Pull-Widerstände, Geschwindigkeit und Alternate Function. Pinnummern 0–15; keine Bitmasken.",
       "archive": "packages/collections/stm32/gpio-library.zip",
-      "sha256": "d60cbddd8bd2d0af4252c93034fbae5af2c72c6d317565c51c278d5f6b4b304b"
+      "sha256": "d4cec1e5a71a16fb974d32e6caca58cd47045136d2ea2eb9c647e841b47a6c1d"
     },
     {
       "id": "uart-library",
       "name": "05 · UART-Bibliothek · USART1 Echo",
-      "description": "USART1/2/3, UART4 und LPUART1. 8N1 mit PCLK, einfache Textausgabe und nicht blockierende Byte-API. Pins separat konfigurieren. Pollbudget ist kein Millisekunden-Timeout.",
+      "description": "C++-Klasse UART. USART1/2/3, UART4 und LPUART1. 8N1 mit PCLK, einfache Textausgabe und nicht blockierende Byte-API. Pins separat konfigurieren. Pollbudget ist kein Millisekunden-Timeout.",
       "archive": "packages/collections/stm32/uart-library.zip",
-      "sha256": "4681acb1ed0cad09883de25417227c6451c59a2eb3761e1363cc4818706912a0"
+      "sha256": "0fe26483aa26d7a7ab5fa5cdae6d849534d0c85cd5656df6b83fdde7e645bc21"
     },
     {
       "id": "can-library",
       "name": "06 · CAN-Bibliothek · Loopback / Bus",
-      "description": "Klassisches CAN auf FDCAN1: 11-/29-Bit-IDs, 0–8 Bytes, alle IDs angenommen. Drei TX-/RX-Plätze, Polling, Bus-Off-/Überlaufmeldung. Internes Loopback für den Einstieg. Kein CAN FD.",
+      "description": "C++-Klasse CAN. Klassisches CAN auf FDCAN1: 11-/29-Bit-IDs, 0–8 Bytes, alle IDs angenommen. Drei TX-/RX-Plätze, Polling, Bus-Off-/Überlaufmeldung. Internes Loopback für den Einstieg. Kein CAN FD.",
       "archive": "packages/collections/stm32/can-library.zip",
-      "sha256": "ea168ab38a8100c338509d417ea9d6a2b11f9ef438e88106da8f3e0b67a3b315"
+      "sha256": "029cd9c8750ae32d6ce71c7aeffddc44599aeaf4933f1c438e1f4539de7acccc"
     }
   ]
 }

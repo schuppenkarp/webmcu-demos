@@ -1,4 +1,4 @@
-/* WebMCU CAN 1.0.0 | MIT. RM0440: G431 fixed FDCAN message RAM layout.
+/* WebMCU CAN 2.0.0 | MIT. RM0440: G431 fixed FDCAN message RAM layout.
    No HAL, heap, IRQ handler or user-managed filter tables. */
 #include "mcu_can.h"
 enum {
@@ -36,9 +36,9 @@ static bool timing(uint32_t hz, uint32_t rate, uint32_t *nbtp) {
   }
   return false;
 }
-bool CAN_Init(FDCAN_GlobalTypeDef *can, uint32_t hz, uint32_t bitrate, CAN_Mode mode) {
+bool CAN::begin(uint32_t hz, uint32_t bitrate, Mode mode) {
   uint32_t nbtp;
-  if(can!=FDCAN1 || (mode!=CAN_Normal && mode!=CAN_InternalLoopback) || !timing(hz,bitrate,&nbtp))return false;
+  if(can!=FDCAN1 || (mode!=Normal && mode!=InternalLoopback) || !timing(hz,bitrate,&nbtp))return false;
   RCC->APB1ENR1 |= RCC_APB1ENR1_FDCANEN; (void)RCC->APB1ENR1;
   RCC->CCIPR=(RCC->CCIPR & ~RCC_CCIPR_FDCANSEL) | RCC_CCIPR_FDCANSEL_1;
   RCC->APB1RSTR1 |= RCC_APB1RSTR1_FDCANRST;
@@ -50,8 +50,8 @@ bool CAN_Init(FDCAN_GlobalTypeDef *can, uint32_t hz, uint32_t bitrate, CAN_Mode 
   can->CCCR |= FDCAN_CCCR_CCE;
   FDCAN_CONFIG->CKDIV=0;
   can->CCCR=FDCAN_CCCR_INIT|FDCAN_CCCR_CCE|
-    (mode==CAN_InternalLoopback ? FDCAN_CCCR_TEST|FDCAN_CCCR_MON : 0);
-  if(mode==CAN_InternalLoopback)can->TEST=FDCAN_TEST_LBCK;
+    (mode==InternalLoopback ? FDCAN_CCCR_TEST|FDCAN_CCCR_MON : 0);
+  if(mode==InternalLoopback)can->TEST=FDCAN_TEST_LBCK;
   can->NBTP=nbtp;
   can->RXGFC=0; /* zero filters, all nonmatching frames to FIFO0, blocking FIFO */
   can->XIDAM=0x1fffffffu;
@@ -66,23 +66,24 @@ bool CAN_Init(FDCAN_GlobalTypeDef *can, uint32_t hz, uint32_t bitrate, CAN_Mode 
   }
   return true;
 }
-bool CAN_IsBusOff(FDCAN_GlobalTypeDef *can) {
+bool CAN::isBusOff() const {
   return can==FDCAN1 && (can->PSR & FDCAN_PSR_BO)!=0;
 }
-bool CAN_TakeOverflow(FDCAN_GlobalTypeDef *can) {
+bool CAN::takeOverflow() {
   if(can!=FDCAN1)return false;
   bool lost=(can->IR & FDCAN_IR_RF0L)!=0;
   if(lost)can->IR=FDCAN_IR_RF0L;
   return lost;
 }
-CAN_Result CAN_Send(FDCAN_GlobalTypeDef *can,const CAN_Message *m) {
-  if(can!=FDCAN1 || !m || m->length>8 || m->id>(m->extended?0x1fffffffu:0x7ffu))return CAN_Invalid;
-  if(CAN_IsBusOff(can))return CAN_BusOff;
-  if(!ready(can))return CAN_Invalid;
+CAN::Result CAN::send(const Message &message) {
+  const Message *m = &message;
+  if(can!=FDCAN1 || m->length>8 || m->id>(m->extended?0x1fffffffu:0x7ffu))return Invalid;
+  if(isBusOff())return BusOff;
+  if(!ready(can))return Invalid;
   uint32_t state=can->TXFQS;
-  if(state & FDCAN_TXFQS_TFQF)return CAN_WouldBlock;
+  if(state & FDCAN_TXFQS_TFQF)return WouldBlock;
   unsigned index=(state & FDCAN_TXFQS_TFQPI)>>FDCAN_TXFQS_TFQPI_Pos;
-  if(index>=3)return CAN_Invalid;
+  if(index>=3)return Invalid;
   volatile uint32_t *slot=MESSAGE_RAM+TxWord+index*ElementWords;
   slot[0]=(m->extended ? m->id|ELEMENT_EXTENDED : m->id<<18) | (m->remote?ELEMENT_REMOTE:0);
   slot[1]=(uint32_t)m->length<<16;
@@ -95,19 +96,20 @@ CAN_Result CAN_Send(FDCAN_GlobalTypeDef *can,const CAN_Message *m) {
     slot[2+word]=value;
   }
   __DMB();can->TXBAR=1u<<index;
-  return CAN_Ok;
+  return Ok;
 }
-CAN_Result CAN_Receive(FDCAN_GlobalTypeDef *can,CAN_Message *m) {
-  if(can!=FDCAN1 || !m)return CAN_Invalid;
-  if(CAN_IsBusOff(can))return CAN_BusOff;
-  if(!ready(can))return CAN_Invalid;
+CAN::Result CAN::receive(Message &message) {
+  Message *m = &message;
+  if(can!=FDCAN1)return Invalid;
+  if(isBusOff())return BusOff;
+  if(!ready(can))return Invalid;
   uint32_t state=can->RXF0S;
-  if(!(state & FDCAN_RXF0S_F0FL))return CAN_WouldBlock;
+  if(!(state & FDCAN_RXF0S_F0FL))return WouldBlock;
   unsigned index=(state & FDCAN_RXF0S_F0GI)>>FDCAN_RXF0S_F0GI_Pos;
-  if(index>=3)return CAN_Invalid;
+  if(index>=3)return Invalid;
   volatile uint32_t *slot=MESSAGE_RAM+Rx0Word+index*ElementWords;
   uint32_t r0=slot[0],r1=slot[1];
-  if(r1 & ELEMENT_FD){can->RXF0A=index;return CAN_Unsupported;}
+  if(r1 & ELEMENT_FD){can->RXF0A=index;return Unsupported;}
   m->extended=(r0 & ELEMENT_EXTENDED)!=0;m->remote=(r0 & ELEMENT_REMOTE)!=0;
   m->id=m->extended ? r0 & 0x1fffffffu : (r0>>18)&0x7ffu;
   unsigned dlc=(r1>>16)&15u;m->length=(uint8_t)(dlc>8 ? 8 : dlc);
@@ -119,5 +121,5 @@ CAN_Result CAN_Receive(FDCAN_GlobalTypeDef *can,CAN_Message *m) {
     }
   }
   __DMB();can->RXF0A=index;
-  return CAN_Ok;
+  return Ok;
 }

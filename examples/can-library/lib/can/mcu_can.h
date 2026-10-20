@@ -21,36 +21,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-/* WebMCU CAN 1.0.0 | MIT | STM32G431 FDCAN1 | C and C++ */
-#ifndef WEBMCU_CAN_H
-#define WEBMCU_CAN_H
-#include <stdbool.h>
+// WebMCU CAN 2.0.0 | STM32G431 | C++11 or later
+#pragma once
+#include <stddef.h>
 #include "include/stm32g431xx.h"
-#ifdef __cplusplus
-extern "C" {
-#endif
-typedef enum { CAN_Normal, CAN_InternalLoopback } CAN_Mode;
-typedef enum { CAN_Ok, CAN_WouldBlock, CAN_BusOff, CAN_Invalid, CAN_Unsupported } CAN_Result;
-typedef struct {
-  uint32_t id;
-  uint8_t length;       /* 0..8 */
-  bool extended;       /* false: 11-bit ID; true: 29-bit ID */
-  bool remote;         /* remote request; no payload */
-  uint8_t data[8];
-} CAN_Message;
-/* Classic CAN only. Accepts all standard/extended and remote frames into FIFO0.
-   Selects PCLK1, divider 1. Pass actual PCLK1 Hz. Pins/AF9 are caller-owned.
-   Resets FDCAN1 and its FIFOs. Blocking init has a bounded polling budget.
-   Do not share this peripheral with another driver or call from concurrent IRQs. */
-bool CAN_Init(FDCAN_GlobalTypeDef *can, uint32_t pclk1Hz, uint32_t bitrate, CAN_Mode mode);
-/* Nonblocking. CAN_Ok means queued, not acknowledged on the bus.
-   Three TX slots; automatic retransmission. A missing ACK can fill the queue. */
-CAN_Result CAN_Send(FDCAN_GlobalTypeDef *can, const CAN_Message *message);
-CAN_Result CAN_Receive(FDCAN_GlobalTypeDef *can, CAN_Message *message);
-bool CAN_IsBusOff(FDCAN_GlobalTypeDef *can);
-/* Returns and clears the RX FIFO0 message-lost indication. Drain FIFO promptly. */
-bool CAN_TakeOverflow(FDCAN_GlobalTypeDef *can);
-#ifdef __cplusplus
-}
-#endif
-#endif
+
+// Do not share a peripheral between drivers or concurrent interrupt handlers.
+class CAN {
+public:
+  enum Mode { Normal, InternalLoopback };
+  enum Result { Ok, WouldBlock, BusOff, Invalid, Unsupported };
+  struct Message {
+    uint32_t id = 0;
+    uint8_t length = 0; // 0..8
+    bool extended = false; // false: 11-bit ID, true: 29-bit ID
+    bool remote = false;
+    uint8_t data[8] = {};
+  };
+  constexpr explicit CAN(FDCAN_GlobalTypeDef* peripheral) : can(peripheral) {}
+  // Classic CAN; accepts all IDs into FIFO0. PCLK1, divider 1.
+  // Resets FDCAN1 and FIFOs; bounded polling. Pins/AF9 configured separately.
+  bool begin(uint32_t pclk1Hz, uint32_t bitrate, Mode mode = Normal);
+  // Nonblocking: Ok means queued, not acknowledged. Three TX/RX slots.
+  Result send(const Message& message);
+  Result receive(Message& message);
+  bool isBusOff() const;
+  // Returns and clears RX FIFO0 message-lost indication.
+  bool takeOverflow();
+private:
+  FDCAN_GlobalTypeDef* const can;
+};

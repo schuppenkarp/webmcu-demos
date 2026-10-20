@@ -19,7 +19,7 @@
     "optimization": "s",
     "debugOptimization": "0"
   },
-  "active": "main.c",
+  "active": "main.cpp",
   "watches": [
     "can_ready",
     "sent_frames",

@@ -2,14 +2,15 @@
    Reset-Takt HSI16. Die Pause ist absichtlich einfach und ungenau. */
 #include "mcu_gpio.h"
 volatile uint32_t toggles = 0;
-int main(void) {
-  PeripheralClockEnable(GPIOB);
-  GPIO_Write(GPIOB, 1, false);
-  GPIO_Mode(GPIOB, 1, PushPull);
-  GPIO_Pull(GPIOB, 1, NoPull);
-  GPIO_Speed(GPIOB, 1, LowSpeed);
+extern "C" int main() {
+  GPIO led(GPIOB, 1);
+  led.enableClock();
+  led.write(false);
+  led.mode(GPIO::PushPull);
+  led.pull(GPIO::NoPull);
+  led.speed(GPIO::LowSpeed);
   for (;;) {
-    GPIO_Toggle(GPIOB, 1);
+    led.toggle();
     ++toggles;
     for (volatile uint32_t delay = 0; delay < 400000; ++delay) __NOP();
   }

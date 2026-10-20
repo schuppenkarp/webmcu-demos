@@ -21,27 +21,26 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-/* WebMCU UART 1.0.0 | MIT | STM32G431 | C and C++ */
-#ifndef WEBMCU_UART_H
-#define WEBMCU_UART_H
-#include <stdbool.h>
+// WebMCU UART 2.0.0 | STM32G431 | C++11 or later
+#pragma once
 #include <stddef.h>
 #include "include/stm32g431xx.h"
-#ifdef __cplusplus
-extern "C" {
-#endif
-typedef enum { UART_Ok, UART_WouldBlock, UART_Timeout, UART_Error, UART_Invalid } UART_Result;
-/* USART1/2/3, UART4, LPUART1. 8 data bits, no parity, 1 stop bit.
-   Chooses PCLK; pass actual PCLK2 for USART1, PCLK1 for all others.
-   Pins/alternate functions are configured by the caller. No interrupts/heap. */
-bool UART_Init(USART_TypeDef *uart, uint32_t peripheralClockHz, uint32_t baud);
-UART_Result UART_TryWrite(USART_TypeDef *uart, uint8_t byte);
-UART_Result UART_TryRead(USART_TypeDef *uart, uint8_t *byte);
-/* Budget is polling iterations, NOT milliseconds. Partial output is possible. */
-UART_Result UART_Write(USART_TypeDef *uart, const void *data, size_t size, uint32_t budget);
-UART_Result UART_Print(USART_TypeDef *uart, const char *text, uint32_t budget);
-UART_Result UART_Flush(USART_TypeDef *uart, uint32_t budget);
-#ifdef __cplusplus
-}
-#endif
-#endif
+
+// Do not share a peripheral between drivers or concurrent interrupt handlers.
+class UART {
+public:
+  enum Result { Ok, WouldBlock, Timeout, Error, Invalid };
+  // USART1/2/3, UART4, LPUART1. Constructor does not touch hardware.
+  constexpr explicit UART(USART_TypeDef* peripheral) : u(peripheral) {}
+  // 8N1; selects PCLK. Actual PCLK2 for USART1, PCLK1 for other instances.
+  // Configure pins and alternate functions separately before begin().
+  bool begin(uint32_t peripheralClockHz, uint32_t baud);
+  Result tryWrite(uint8_t byte);
+  Result tryRead(uint8_t& byte);
+  // Budget counts polling iterations, NOT milliseconds. Partial output possible.
+  Result write(const void* data, size_t size, uint32_t budget);
+  Result print(const char* text, uint32_t budget);
+  Result flush(uint32_t budget);
+private:
+  USART_TypeDef* const u;
+};

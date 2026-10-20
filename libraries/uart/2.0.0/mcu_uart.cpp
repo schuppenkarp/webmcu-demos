@@ -1,9 +1,9 @@
-/* WebMCU UART 1.0.0 | MIT. Standalone: does not depend on mcu_gpio. */
+/* WebMCU UART 2.0.0 | MIT. Standalone: does not depend on mcu_gpio. */
 #include "mcu_uart.h"
 static bool valid(USART_TypeDef *u) {
   return u==USART1 || u==USART2 || u==USART3 || u==UART4 || u==LPUART1;
 }
-bool UART_Init(USART_TypeDef *u, uint32_t hz, uint32_t baud) {
+bool UART::begin(uint32_t hz, uint32_t baud) {
   if (!valid(u) || !hz || !baud || baud>hz || hz > 170000000u) return false;
   uint64_t scaled=(uint64_t)hz * (u==LPUART1 ? 256u : 1u);
   uint32_t brr=hz/baud, remainder=hz%baud;
@@ -37,40 +37,40 @@ bool UART_Init(USART_TypeDef *u, uint32_t hz, uint32_t baud) {
   }
   return true;
 }
-UART_Result UART_TryWrite(USART_TypeDef *u, uint8_t byte) {
-  if(!valid(u) || !(u->CR1 & USART_CR1_UE)) return UART_Invalid;
-  if(!(u->ISR & USART_ISR_TXE_TXFNF)) return UART_WouldBlock;
-  u->TDR=byte;return UART_Ok;
+UART::Result UART::tryWrite(uint8_t byte) {
+  if(!valid(u) || !(u->CR1 & USART_CR1_UE)) return Invalid;
+  if(!(u->ISR & USART_ISR_TXE_TXFNF)) return WouldBlock;
+  u->TDR=byte;return Ok;
 }
-UART_Result UART_TryRead(USART_TypeDef *u, uint8_t *byte) {
-  if(!valid(u) || !byte || !(u->CR1 & USART_CR1_UE)) return UART_Invalid;
+UART::Result UART::tryRead(uint8_t &byte) {
+  if(!valid(u) || !(u->CR1 & USART_CR1_UE)) return Invalid;
   uint32_t status=u->ISR;
   if(status & (USART_ISR_ORE|USART_ISR_NE|USART_ISR_FE|USART_ISR_PE)) {
     if(status & USART_ISR_RXNE_RXFNE)(void)u->RDR;
     u->ICR=USART_ICR_ORECF|USART_ICR_NECF|USART_ICR_FECF|USART_ICR_PECF;
-    return UART_Error;
+    return Error;
   }
-  if(!(status & USART_ISR_RXNE_RXFNE))return UART_WouldBlock;
-  *byte=(uint8_t)u->RDR;return UART_Ok;
+  if(!(status & USART_ISR_RXNE_RXFNE))return WouldBlock;
+  byte=(uint8_t)u->RDR;return Ok;
 }
-UART_Result UART_Write(USART_TypeDef *u, const void *data, size_t size, uint32_t budget) {
-  if(!valid(u) || (!data && size)) return UART_Invalid;
+UART::Result UART::write(const void *data, size_t size, uint32_t budget) {
+  if(!valid(u) || (!data && size)) return Invalid;
   const uint8_t *bytes=(const uint8_t *)data;
   for(size_t i=0;i<size;) {
-    UART_Result r=UART_TryWrite(u,bytes[i]);
-    if(r==UART_Ok)++i;
-    else if(r!=UART_WouldBlock)return r;
-    else if(!budget--)return UART_Timeout;
+    Result r=tryWrite(bytes[i]);
+    if(r==Ok)++i;
+    else if(r!=WouldBlock)return r;
+    else if(!budget--)return Timeout;
   }
-  return UART_Ok;
+  return Ok;
 }
-UART_Result UART_Print(USART_TypeDef *u, const char *text, uint32_t budget) {
-  if(!text)return UART_Invalid;
+UART::Result UART::print(const char *text, uint32_t budget) {
+  if(!text)return Invalid;
   size_t size=0;while(text[size])++size;
-  return UART_Write(u,text,size,budget);
+  return write(text,size,budget);
 }
-UART_Result UART_Flush(USART_TypeDef *u, uint32_t budget) {
-  if(!valid(u) || !(u->CR1 & USART_CR1_UE))return UART_Invalid;
-  while(!(u->ISR & USART_ISR_TC))if(!budget--)return UART_Timeout;
-  return UART_Ok;
+UART::Result UART::flush(uint32_t budget) {
+  if(!valid(u) || !(u->CR1 & USART_CR1_UE))return Invalid;
+  while(!(u->ISR & USART_ISR_TC))if(!budget--)return Timeout;
+  return Ok;
 }

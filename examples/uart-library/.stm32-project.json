@@ -19,7 +19,7 @@
     "optimization": "s",
     "debugOptimization": "0"
   },
-  "active": "main.c",
+  "active": "main.cpp",
   "watches": [
     "uart_ready",
     "received_bytes",

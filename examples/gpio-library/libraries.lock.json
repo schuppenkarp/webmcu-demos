@@ -3,17 +3,17 @@
   "libraries": [
     {
       "id": "gpio",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "repository": "schuppenkarp/webmcu-demos",
       "commit": null,
       "files": [
         {
-          "path": "lib/gpio/mcu_gpio.c",
-          "sha256": "71a1db916fcc14fa1666271d0906c6db5ac9afd79b26392246aa0ba46c456d0f"
+          "path": "lib/gpio/mcu_gpio.cpp",
+          "sha256": "07485bba26016102c6407ceb2b42a3e43da85715d08a7f685143e651a865b8fc"
         },
         {
           "path": "lib/gpio/mcu_gpio.h",
-          "sha256": "c403a746c518a4bfb5f6425b5599f221cec5108279dbafb41da655df83883340"
+          "sha256": "c300740f87e2bc57a4d41cad3f778781f034407317e417a453507bff13864163"
         }
       ]
     }

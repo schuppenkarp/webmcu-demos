@@ -60,6 +60,66 @@
           "sha256": "60d03551e2a8b0ac75338fc8893fbe687db1a09851c06007a956169dc4055fe6"
         }
       ]
+    },
+    {
+      "id": "gpio",
+      "version": "2.0.0",
+      "title": "GPIO · Pins einfach bedienen",
+      "controller": "STM32G431CB",
+      "description": "C++-Klasse GPIO. Porttakt, Push-Pull/Open-Drain, Ein-/Ausgang, Pull-Widerstände, Geschwindigkeit und Alternate Function. Pinnummern 0–15; keine Bitmasken.",
+      "usage": "#include \"mcu_gpio.h\"\n\nGPIO led(GPIOB, 1);\nled.enableClock();\nled.write(false);\nled.mode(GPIO::PushPull);\nled.pull(GPIO::NoPull);\nled.toggle();",
+      "files": [
+        {
+          "name": "mcu_gpio.cpp",
+          "path": "libraries/gpio/2.0.0/mcu_gpio.cpp",
+          "sha256": "07485bba26016102c6407ceb2b42a3e43da85715d08a7f685143e651a865b8fc"
+        },
+        {
+          "name": "mcu_gpio.h",
+          "path": "libraries/gpio/2.0.0/mcu_gpio.h",
+          "sha256": "c300740f87e2bc57a4d41cad3f778781f034407317e417a453507bff13864163"
+        }
+      ]
+    },
+    {
+      "id": "uart",
+      "version": "2.0.0",
+      "title": "UART · Text und Bytes",
+      "controller": "STM32G431CB",
+      "description": "C++-Klasse UART. USART1/2/3, UART4 und LPUART1. 8N1 mit PCLK, einfache Textausgabe und nicht blockierende Byte-API. Pins separat konfigurieren. Pollbudget ist kein Millisekunden-Timeout.",
+      "usage": "#include \"mcu_uart.h\"\n\nUART serial(USART1);\n// Configure PA9/PA10 AF7 first. Actual PCLK2 = 16 MHz.\nif (serial.begin(16000000, 115200)) {\n  serial.print(\"Hallo\\r\\n\", 100000);\n  uint8_t byte;\n  if (serial.tryRead(byte) == UART::Ok) serial.tryWrite(byte);\n}",
+      "files": [
+        {
+          "name": "mcu_uart.cpp",
+          "path": "libraries/uart/2.0.0/mcu_uart.cpp",
+          "sha256": "3e92eace95fc07e954a1ee6c2612c313062736ae3653925e885a34cabdeaacb2"
+        },
+        {
+          "name": "mcu_uart.h",
+          "path": "libraries/uart/2.0.0/mcu_uart.h",
+          "sha256": "e06514b0bee61e81543083a7d79835428d0fa1ecd04423596bb0c474f76b0cc3"
+        }
+      ]
+    },
+    {
+      "id": "can",
+      "version": "2.0.0",
+      "title": "CAN · Senden und Empfangen",
+      "controller": "STM32G431CB",
+      "description": "C++-Klasse CAN. Klassisches CAN auf FDCAN1: 11-/29-Bit-IDs, 0–8 Bytes, alle IDs angenommen. Drei TX-/RX-Plätze, Polling, Bus-Off-/Überlaufmeldung. Internes Loopback für den Einstieg. Kein CAN FD.",
+      "usage": "#include \"mcu_can.h\"\n\nCAN bus(FDCAN1);\nif (bus.begin(16000000, 500000, CAN::InternalLoopback)) {\n  CAN::Message frame;\n  frame.id = 0x123;\n  frame.length = 1;\n  frame.data[0] = 42;\n  bus.send(frame);\n  CAN::Message received;\n  if (bus.receive(received) == CAN::Ok) { /* use received.data */ }\n}",
+      "files": [
+        {
+          "name": "mcu_can.cpp",
+          "path": "libraries/can/2.0.0/mcu_can.cpp",
+          "sha256": "ced6fea96053b651929c5b1bbc8362e6431927c381b469a030eae313615cb050"
+        },
+        {
+          "name": "mcu_can.h",
+          "path": "libraries/can/2.0.0/mcu_can.h",
+          "sha256": "152a3dd19c19664c31751675797e2e476eb87961ec654fde9e32173769cfd594"
+        }
+      ]
     }
   ]
 }

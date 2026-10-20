@@ -21,34 +21,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-/* WebMCU GPIO 1.0.0 | MIT | STM32G431 | C and C++ */
-#ifndef WEBMCU_GPIO_H
-#define WEBMCU_GPIO_H
-#include <stdbool.h>
+// WebMCU GPIO 2.0.0 | STM32G431 | C++11 or later
+#pragma once
+#include <stddef.h>
 #include "include/stm32g431xx.h"
-#ifdef __cplusplus
-extern "C" {
-#endif
 
-/* pin is a number 0..15, not a bit mask. Configure pins before enabling IRQs. */
-typedef enum { Input, PushPull, OpenDrain, Analog } GPIO_ModeType;
-typedef enum { NoPull, PullUp, PullDown } GPIO_PullType;
-typedef enum { LowSpeed, MediumSpeed, HighSpeed, VeryHighSpeed } GPIO_SpeedType;
-
-/* Supports available GPIO, USART/UART/LPUART and FDCAN1 peripherals.
-   Enables only the bus clock; does not change the system clock. */
-bool PeripheralClockEnable(const void *peripheral);
-bool GPIO_Mode(GPIO_TypeDef *port, unsigned pin, GPIO_ModeType mode);
-bool GPIO_Pull(GPIO_TypeDef *port, unsigned pin, GPIO_PullType pull);
-bool GPIO_Speed(GPIO_TypeDef *port, unsigned pin, GPIO_SpeedType speed);
-/* Select AF0..15; sets alternate-function mode and push-pull output. */
-bool GPIO_Alternate(GPIO_TypeDef *port, unsigned pin, unsigned alternate);
-bool GPIO_Write(GPIO_TypeDef *port, unsigned pin, bool high);
-bool GPIO_Read(GPIO_TypeDef *port, unsigned pin);
-/* Read/modify/write: do not toggle the same pin from concurrent IRQs. */
-bool GPIO_Toggle(GPIO_TypeDef *port, unsigned pin);
-
-#ifdef __cplusplus
-}
-#endif
-#endif
+// Do not share a peripheral between drivers or concurrent interrupt handlers.
+class GPIO {
+public:
+  enum Mode { Input, PushPull, OpenDrain, Analog };
+  enum Pull { NoPull, PullUp, PullDown };
+  enum Speed { LowSpeed, MediumSpeed, HighSpeed, VeryHighSpeed };
+  // Only stores port and pin. Call enableClock() before accessing registers.
+  // Pin is 0..15, not a bit mask. No heap or hardware access in constructor.
+  constexpr GPIO(GPIO_TypeDef* port, unsigned pin) : port(port), pin(pin) {}
+  bool enableClock() const { return enableClock(port); }
+  // Enables only the peripheral bus clock, never changes the system clock.
+  static bool enableClock(const void* peripheral);
+  bool mode(Mode value);
+  bool pull(Pull value);
+  bool speed(Speed value);
+  // AF0..15, alternate-function mode with push-pull output.
+  bool alternate(unsigned function);
+  bool write(bool high);
+  bool read() const;
+  // Not atomic against concurrent accesses to the same pin.
+  bool toggle();
+private:
+  GPIO_TypeDef* const port;
+  const unsigned pin;
+};

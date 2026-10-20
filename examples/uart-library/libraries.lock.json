@@ -3,33 +3,33 @@
   "libraries": [
     {
       "id": "gpio",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "repository": "schuppenkarp/webmcu-demos",
       "commit": null,
       "files": [
         {
-          "path": "lib/gpio/mcu_gpio.c",
-          "sha256": "71a1db916fcc14fa1666271d0906c6db5ac9afd79b26392246aa0ba46c456d0f"
+          "path": "lib/gpio/mcu_gpio.cpp",
+          "sha256": "07485bba26016102c6407ceb2b42a3e43da85715d08a7f685143e651a865b8fc"
         },
         {
           "path": "lib/gpio/mcu_gpio.h",
-          "sha256": "c403a746c518a4bfb5f6425b5599f221cec5108279dbafb41da655df83883340"
+          "sha256": "c300740f87e2bc57a4d41cad3f778781f034407317e417a453507bff13864163"
         }
       ]
     },
     {
       "id": "uart",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "repository": "schuppenkarp/webmcu-demos",
       "commit": null,
       "files": [
         {
-          "path": "lib/uart/mcu_uart.c",
-          "sha256": "c446e7ce8261ad56bec93d6a0146c15a1fd903094005e9f3d561c30ae09b1699"
+          "path": "lib/uart/mcu_uart.cpp",
+          "sha256": "3e92eace95fc07e954a1ee6c2612c313062736ae3653925e885a34cabdeaacb2"
         },
         {
           "path": "lib/uart/mcu_uart.h",
-          "sha256": "a4c3385ac9919bcd5eb28e4396460eb040fb2078078a08e8c228555562658447"
+          "sha256": "e06514b0bee61e81543083a7d79835428d0fa1ecd04423596bb0c474f76b0cc3"
         }
       ]
     }
