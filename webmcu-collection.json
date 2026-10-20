@@ -7,35 +7,35 @@
       "name": "01 · GPIO-Bibliothek · PB1",
       "description": "C++-Klasse GPIO. Porttakt, Push-Pull/Open-Drain, Ein-/Ausgang, Pull-Widerstände, Geschwindigkeit und Alternate Function. Pinnummern 0–15; keine Bitmasken.",
       "archive": "packages/collections/stm32/gpio-library.zip",
-      "sha256": "8162220f21b234a16afd9a3ee89e19f36d00834e2a79aa51d4591deb2389dfd2"
+      "sha256": "5b974777f16afb9fa80c92fc571b6bdd7b32859aded35175ec43f2252a594cec"
     },
     {
       "id": "uart-library",
       "name": "02 · UART-Bibliothek · USART1 Echo",
       "description": "C++-Klasse UART. USART1/2/3, UART4 und LPUART1. 8N1 mit PCLK, einfache Textausgabe und nicht blockierende Byte-API. Pins separat konfigurieren. Pollbudget ist kein Millisekunden-Timeout.",
       "archive": "packages/collections/stm32/uart-library.zip",
-      "sha256": "1eb69d7ce9c5503306538cc49f7c80a295dc34846f0443898e1d3d8060edac59"
+      "sha256": "0be3ee75990b62189444396567fad03d129e78064fb27af86d1cd1c9204df97b"
     },
     {
       "id": "can-library",
       "name": "03 · CAN-Bibliothek · Loopback / Bus",
       "description": "C++-Klasse CAN. Klassisches CAN auf FDCAN1: 11-/29-Bit-IDs, 0–8 Bytes, alle IDs angenommen. Drei TX-/RX-Plätze, Polling, Bus-Off-/Überlaufmeldung. Internes Loopback für den Einstieg. Kein CAN FD.",
       "archive": "packages/collections/stm32/can-library.zip",
-      "sha256": "aabbf230bdc6b72e2212c4d7e12ce309f58ab6aa16f80de9181ec81372292105"
+      "sha256": "5edd8c26586b8cf3733de9c886814db31c06464c93a1b468ae5ed2ad56528da5"
     },
     {
       "id": "minimal-addresses",
       "name": "04 · Mini-Blink · direkte Adressen",
       "description": "PB1 direkt über Speicheradressen. Keine Includes, Bibliotheken oder Init-Funktionen.",
       "archive": "packages/collections/stm32/minimal-addresses.zip",
-      "sha256": "51ab009841da3035d53acf808d6ca1b7487c48c9ee3171f9ce2923a83824a897"
+      "sha256": "b71bf0f9b65173e700c273577d54e21ce93f2c80a2678bd8f24f5b0f9f29085b"
     },
     {
       "id": "minimal-registers",
       "name": "05 · Mini-Blink · ST-Registernamen",
       "description": "Derselbe PB1-Blinker mit RCC/ GPIOB und originalen ST-Registerdefinitionen.",
       "archive": "packages/collections/stm32/minimal-registers.zip",
-      "sha256": "0c08a65ac6d8f4e763524c7bbf4e318596b18028d71d757cffa744dfd1bd272b"
+      "sha256": "a0b32ab8e19a6674f6ace712ff8b0f09b1ed1a91b0d34f9abca57b24e06c8325"
     }
   ]
 }
