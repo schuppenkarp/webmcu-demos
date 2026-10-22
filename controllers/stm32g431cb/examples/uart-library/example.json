@@ -1,5 +1,5 @@
 {
-  "name": "02 · UART-Bibliothek · USART1 Echo",
+  "name": "02 · UART-Bibliothek · USART3 Echo (PB10/PB11)",
   "config": {
     "controller": "STM32G431CB",
     "cpu": "cortex-m4",
