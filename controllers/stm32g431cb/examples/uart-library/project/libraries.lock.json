@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "libraries": [
+    {
+      "id": "clock",
+      "version": "2.0.0",
+      "repository": "schuppenkarp/webmcu-demos",
+      "commit": null,
+      "controller": "STM32G431CB",
+      "sourceFiles": [
+        {
+          "path": "libraries/clock/2.0.0/mcu_clock.h",
+          "sha256": "2cf2ba821889a2212fbe3fe10a5e5e3e598ce885b97acf4403a03efdc308628d"
+        },
+        {
+          "path": "controllers/stm32g431cb/libraries/clock/2.0.0/mcu_clock.cpp",
+          "sha256": "830066cb25e408deba8d02a69775129364dda519a645773182a2889e9d72e391"
+        }
+      ],
+      "files": [
+        {
+          "path": "lib/clock/mcu_clock.h",
+          "sha256": "2cf2ba821889a2212fbe3fe10a5e5e3e598ce885b97acf4403a03efdc308628d"
+        },
+        {
+          "path": "lib/clock/mcu_clock.cpp",
+          "sha256": "830066cb25e408deba8d02a69775129364dda519a645773182a2889e9d72e391"
+        }
+      ]
+    },
+    {
+      "id": "gpio",
+      "version": "3.0.0",
+      "repository": "schuppenkarp/webmcu-demos",
+      "commit": null,
+      "controller": "STM32G431CB",
+      "sourceFiles": [
+        {
+          "path": "libraries/gpio/3.0.0/mcu_gpio.h",
+          "sha256": "9af169774e7610c95addd046d4496cc42330eabe1220c8b164c7be6dc9bd1876"
+        },
+        {
+          "path": "controllers/stm32g431cb/libraries/gpio/3.0.0/mcu_gpio.cpp",
+          "sha256": "bda2c8d59961f8d95914b89da3ce07ade70d59c3ef288360da77b2f7bb1b1414"
+        }
+      ],
+      "files": [
+        {
+          "path": "lib/gpio/mcu_gpio.h",
+          "sha256": "9af169774e7610c95addd046d4496cc42330eabe1220c8b164c7be6dc9bd1876"
+        },
+        {
+          "path": "lib/gpio/mcu_gpio.cpp",
+          "sha256": "bda2c8d59961f8d95914b89da3ce07ade70d59c3ef288360da77b2f7bb1b1414"
+        }
+      ]
+    },
+    {
+      "id": "uart",
+      "version": "3.0.0",
+      "repository": "schuppenkarp/webmcu-demos",
+      "commit": null,
+      "controller": "STM32G431CB",
+      "sourceFiles": [
+        {
+          "path": "libraries/uart/3.0.0/mcu_uart.h",
+          "sha256": "ae3486e04db1fce72341ac85131a0e805fb86f30163532ed5b19cf4b14ca5390"
+        },
+        {
+          "path": "controllers/stm32g431cb/libraries/uart/3.0.0/mcu_uart.cpp",
+          "sha256": "4cbb93a32a93725edb432bdd742a652b9959d66a91e954479e54cfdc01740378"
+        }
+      ],
+      "files": [
+        {
+          "path": "lib/uart/mcu_uart.h",
+          "sha256": "ae3486e04db1fce72341ac85131a0e805fb86f30163532ed5b19cf4b14ca5390"
+        },
+        {
+          "path": "lib/uart/mcu_uart.cpp",
+          "sha256": "4cbb93a32a93725edb432bdd742a652b9959d66a91e954479e54cfdc01740378"
+        }
+      ]
+    }
+  ]
+}

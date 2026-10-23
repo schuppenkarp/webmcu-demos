@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "controller": "stm32g431cb",
+  "version": "1.0.0",
+  "repository": "schuppenkarp/webmcu-demos",
+  "files": [
+    {
+      "source": "controllers/stm32g431cb/src/minimal-startup.s",
+      "target": "startup.s",
+      "sha256": "b21c10c206a605f223e004286de96427d402cffd9a257a89446526c753d7791d"
+    },
+    {
+      "source": "controllers/stm32g431cb/linker/stm32g431cb.ld",
+      "target": "stm32g431cb.ld",
+      "sha256": "c735e239f3934795ecd9ae4fe98ce9f572b28f11b62008c36fee4c50643aacd3"
+    }
+  ]
+}

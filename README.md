@@ -1,4 +1,4 @@
-# LG webMCU · Controllerpakete und Beispiele
+# webMCU · Controllerpakete und Beispiele
 
 Referenz: STM32G431CB, ST-Link V3. Keine HAL, kein Arduino.
 
@@ -17,9 +17,9 @@ Im erzeugten Projekt heißt der Headerpfad include/stm32g431xx.h. Herstellerdate
 und Lizenzen sind unverändert; headers.lock.json dokumentiert die Herkunft.
 
 Die Beispiele im Quellbaum enthalten main.cpp, README.md und example.json.
-Vollständige, eigenständige Projekt-ZIPs stehen unter packages/collections/stm32/.
-Die ZIPs werden aus den gemeinsamen Quellen erzeugt; Header und Libraries werden
-nicht zusätzlich in den Beispielordnern gepflegt.
+Das Manifest verweist direkt auf diese Quellen und die gemeinsamen Controller-
+und Librarydateien. Im Repository liegen keine Demo-ZIPs oder zusätzlichen
+Kopien der Header und Libraries in den Beispielordnern.
 
 In der IDE: Bibliotheken → Quellen verwalten. Weitere GitHub-Repositories oder
 lokale Ordner mit webmcu-libraries.json und/oder webmcu-collection.json können
@@ -27,3 +27,11 @@ zusätzlich verbunden werden. Die Manifeste hier sind die Formatvorlage.
 
 Libraries unter MIT; Herstellerheader unter ihren enthaltenen ST-/CMSIS-Lizenzen.
 Builds und Registersimulationen sind geprüft; physische UART-/CAN-/DFU-Abnahme offen.
+
+## Demos ohne Archive
+
+webmcu-collection.json verweist auf normale Dateien unter controllers/ und
+libraries/. Die IDE lädt und prüft sie direkt aus diesem Git und speichert
+sie lokal für Offline-Nutzung. Projektmetadaten und erzeugte Lockdateien
+liegen separat; gemeinsame Header und Libraryadapter werden nicht kopiert.
+Neue Git-Stände aktualisieren den Vorlagenkatalog, niemals bestehende Projekte.
