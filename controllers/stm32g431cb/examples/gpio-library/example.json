@@ -15,8 +15,8 @@
     ],
     "cStandard": "c17",
     "standard": "c++17",
-    "optimization": "s",
-    "debugOptimization": "0"
+    "optimization": "0",
+    "omitDebugInfo": false
   },
   "active": "main.cpp",
   "watches": [

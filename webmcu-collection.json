@@ -8,7 +8,7 @@
       "name": "01 · GPIO-Bibliothek · PB1",
       "description": "C++-Klasse GPIO. Porttakt, Push-Pull/Open-Drain, Ein-/Ausgang, Pull-Widerstände, Geschwindigkeit und Alternate Function. Pinnummern 0–15; keine Bitmasken. Gemeinsame API; STM32G431CB-Adapter.",
       "archive": "packages/collections/stm32/gpio-library.zip",
-      "sha256": "469824aac1b656753df2fbf740a586321f1aa065a13079f878074e8754bfd642"
+      "sha256": "0c1b52366adf80657cf800ab7f719bfdb6dcfa7e4dd0f35f4742494d4ebc57a6"
     },
     {
       "id": "uart-library",
@@ -16,7 +16,7 @@
       "name": "02 · UART-Bibliothek · USART3 Echo (PB10/PB11)",
       "description": "USART3 Echo: PB10 = TX, PB11 = RX, AF7. 115200 Baud, 8N1; PCLK1 = 16 MHz im Reset-Zustand. USB-UART mit 3,3-V-Pegeln: PB10 an RX, PB11 an TX und GND verbinden.\n\nC++-Klasse UART. USART1/2/3, UART4 und LPUART1. 8N1 mit PCLK, einfache Textausgabe und nicht blockierende Byte-API. Pins separat konfigurieren. Pollbudget ist kein Millisekunden-Timeout. Gemeinsame API; STM32G431CB-Adapter.",
       "archive": "packages/collections/stm32/uart-library.zip",
-      "sha256": "cc6595636d1ac156fce9902504e2c51df64893966cf161f24f70ab9877875dcc"
+      "sha256": "e9342248f5aeb36500496bd32328c6982a9ce296a10cfd99c73f6882583f07a2"
     },
     {
       "id": "can-library",
@@ -24,7 +24,7 @@
       "name": "03 · CAN-Bibliothek · Loopback / Bus",
       "description": "C++-Klasse CAN. Klassisches CAN auf FDCAN1: 11-/29-Bit-IDs, 0–8 Bytes, alle IDs angenommen. Drei TX-/RX-Plätze, Polling, Bus-Off-/Überlaufmeldung. Internes Loopback für den Einstieg. Kein CAN FD. Gemeinsame API; STM32G431CB-Adapter.",
       "archive": "packages/collections/stm32/can-library.zip",
-      "sha256": "b3362cd1c3814a0aef00841188e4851041956e9fa8fbf423f613b69efb18fad4"
+      "sha256": "4167637de395b2e3553bb18c5ece518f3c202447a1671e09fd024c5f157ff875"
     },
     {
       "id": "minimal-addresses",
@@ -32,7 +32,7 @@
       "name": "04 · Mini-Blink · direkte Adressen",
       "description": "PB1 direkt über Speicheradressen. Nur stdint.h für feste Datentypen; keine Peripheriebibliothek oder Init-Funktionen.",
       "archive": "packages/collections/stm32/minimal-addresses.zip",
-      "sha256": "690a654444ed8bc399493489459a0545a6159c8e07109983e3b8214c3e92d3de"
+      "sha256": "95c811f212b19b889bdb0f9fe9df26ce1a07a57228efd55e7efb629c03dd4cb8"
     },
     {
       "id": "minimal-registers",
@@ -40,7 +40,7 @@
       "name": "05 · Mini-Blink · ST-Registernamen",
       "description": "Derselbe PB1-Blinker mit RCC/ GPIOB und originalen ST-Registerdefinitionen.",
       "archive": "packages/collections/stm32/minimal-registers.zip",
-      "sha256": "e0f8c6dafcf7286c580f236ef89bb3b19c212748aeac24132192fc388d9e7d35"
+      "sha256": "5dddf94209a80061a346dae8d70c1647d0c32d0e8b4dda51381f1d6a4f5d1219"
     }
   ]
 }
