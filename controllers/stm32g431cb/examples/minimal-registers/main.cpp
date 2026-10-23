@@ -7,8 +7,9 @@ extern "C" int main() {
   GPIOB->MODER = (GPIOB->MODER & ~GPIO_MODER_MODE1) | GPIO_MODER_MODE1_0;
 
   while (true) {
-    GPIOB->ODR ^= GPIO_ODR_OD1;
-    for (volatile uint32_t pause = 0; pause < 400000; ++pause) {
-    }
+    GPIOB->ODR |= GPIO_ODR_OD1;
+    for (volatile uint32_t pause = 0; pause < 400000; ++pause);
+    GPIOB->ODR |= GPIO_ODR_OD1;
+    for (volatile uint32_t pause = 0; pause < 400000; ++pause);
   }
 }
