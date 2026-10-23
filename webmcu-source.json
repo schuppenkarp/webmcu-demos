@@ -1,0 +1,397 @@
+{
+  "schemaVersion": 1,
+  "tree": [
+    {
+      "path": "controllers/stm32g431cb/examples/can-library/README.md",
+      "size": 808,
+      "sha": "59f2eec715a7fa08d60bced0b7c1871afd451aad",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/can-library/main.cpp",
+      "size": 2533,
+      "sha": "ab3c6d11d88bde53c123443b1051414d0c3bf932",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/can-library/project/INTERRUPTS.md",
+      "size": 1013,
+      "sha": "ec8c2496f650aa48dc223689f389fd2240562395",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/can-library/project/libraries.lock.json",
+      "size": 2650,
+      "sha": "01cedd09e2ee232761230ed98ef318e3be9f1933",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/gpio-library/README.md",
+      "size": 624,
+      "sha": "657de4bbc865b74d716cda11e6d4ab89fa78a9de",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/gpio-library/main.cpp",
+      "size": 1010,
+      "sha": "ce9f44054e7313f08396c6a515b5e422a34d7e8c",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/gpio-library/project/INTERRUPTS.md",
+      "size": 1013,
+      "sha": "ec8c2496f650aa48dc223689f389fd2240562395",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/gpio-library/project/libraries.lock.json",
+      "size": 1791,
+      "sha": "c223110eb66341760773b207eb8e3b8907ed756c",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/minimal-addresses/README.md",
+      "size": 656,
+      "sha": "65f59e416ba83e3649dddd778d00bce06d68265a",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/minimal-addresses/main.cpp",
+      "size": 859,
+      "sha": "83bb2c42d16b6edc8a708b992c4d7d2a5617d060",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/minimal-addresses/project/controller-package.lock.json",
+      "size": 525,
+      "sha": "d07057ea28d54ffd989f0ed8b9c36451a4fd2c06",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/minimal-registers/README.md",
+      "size": 612,
+      "sha": "086d766d746127b8598cfb80a21d9c80b12c97b2",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/minimal-registers/main.cpp",
+      "size": 474,
+      "sha": "c65d3f858fa52eacc3d374946d40910c0ea7cb96",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/minimal-registers/project/controller-package.lock.json",
+      "size": 2366,
+      "sha": "61179fd569d18742ad32a7d00cc745230cb312e3",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/uart-library/README.md",
+      "size": 842,
+      "sha": "ef78ef807863527d74897cd895ce4d38af4eb838",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/uart-library/main.cpp",
+      "size": 1530,
+      "sha": "20fe727e2a9daeb8c488f059c7d06db1b5fd4f92",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/uart-library/project/INTERRUPTS.md",
+      "size": 1013,
+      "sha": "ec8c2496f650aa48dc223689f389fd2240562395",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/examples/uart-library/project/libraries.lock.json",
+      "size": 2659,
+      "sha": "621fa15c674bb881c8862b2d0570f08a661d1e84",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/includes/CMSIS-LICENSE.txt",
+      "size": 11357,
+      "sha": "8dada3edaf50dbc082c9a125058f25def75e625a",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/includes/ST-LICENSE.md",
+      "size": 9753,
+      "sha": "48dcd966857822ffc6505ae1fcf3a80bc56abd69",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/includes/cmsis_compiler.h",
+      "size": 9481,
+      "sha": "adbf296f15a47a93e5058abddad6742bb4b9854d",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/includes/cmsis_gcc.h",
+      "size": 63374,
+      "sha": "67bda4ef3c38dadc4471129d39eb4e870dc08fc7",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/includes/cmsis_version.h",
+      "size": 1680,
+      "sha": "8b4765f186efe577be5245b59c610056d3c54cbc",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/includes/core_cm4.h",
+      "size": 120975,
+      "sha": "e21cd149256038244e709070864c347136d5af2a",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/includes/mpu_armv7.h",
+      "size": 11731,
+      "sha": "d9eedf81a64c381157c7cfff6f9acfb2309ddff5",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/includes/stm32g431xx.h",
+      "size": 989465,
+      "sha": "e1794444a40b55c7717ff8483d7946ba3d18a11b",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/includes/system_stm32g4xx.h",
+      "size": 2252,
+      "sha": "ed341a8ef6b3428a8e8fe4b2292704975c44a245",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/can/1.0.0/mcu_can.c",
+      "size": 4931,
+      "sha": "83638199283f8a9ffc0a1981317178d0f8b6d3e6",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/can/1.0.0/mcu_can.h",
+      "size": 2642,
+      "sha": "b5454a5761a2647923a51fee86e3b262a4d8bfbd",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/can/2.0.0/mcu_can.cpp",
+      "size": 4783,
+      "sha": "6bf2167acff15cf6e93ff364b685da42b575bcef",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/can/2.0.0/mcu_can.h",
+      "size": 2257,
+      "sha": "55a55e7bf189d74c691657d2d77926a49b44e503",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/can/3.0.0/mcu_can.cpp",
+      "size": 5771,
+      "sha": "a74d5274a4780bd7eb265c126fbffc81442dbf7e",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/clock/1.0.0/mcu_clock.cpp",
+      "size": 4189,
+      "sha": "a64af28420b26871ca47b190850846f2928b96f8",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/clock/2.0.0/mcu_clock.cpp",
+      "size": 6879,
+      "sha": "cc451d2977dac8f39f4947198fcec360966e85b3",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/gpio/1.0.0/mcu_gpio.c",
+      "size": 3157,
+      "sha": "db70fcf4da9707ea7fb67b08c915e4f55d2cf5c9",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/gpio/1.0.0/mcu_gpio.h",
+      "size": 2458,
+      "sha": "ab150971873aa19e3962450c2a00c0c9c10f6ace",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/gpio/2.0.0/mcu_gpio.cpp",
+      "size": 2891,
+      "sha": "e7666d7794edac0d5c6927b7b6f1b1750f01102d",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/gpio/2.0.0/mcu_gpio.h",
+      "size": 2308,
+      "sha": "bae7cb2f63291f677d935ae058d66813c6678ffa",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/gpio/3.0.0/mcu_gpio.cpp",
+      "size": 3294,
+      "sha": "1b1520741304f6da4292b2f35ac50572b6fff79f",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/uart/1.0.0/mcu_uart.c",
+      "size": 3477,
+      "sha": "467f884e435f2692625ff845845c1b32bbead40a",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/uart/1.0.0/mcu_uart.h",
+      "size": 2232,
+      "sha": "a8f480fc368b707bdf0988a6feff74803a213c55",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/uart/2.0.0/mcu_uart.cpp",
+      "size": 3272,
+      "sha": "282061a556985ec9ab640a34c72b547b7f7dabab",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/uart/2.0.0/mcu_uart.h",
+      "size": 2109,
+      "sha": "78f3c93669d7ba56a45e2d7e3653f91c0f61be75",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/libraries/uart/3.0.0/mcu_uart.cpp",
+      "size": 4363,
+      "sha": "a3e791aef0699c2abaa8c99586682d39bc6ce03e",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/linker/stm32g431cb.ld",
+      "size": 883,
+      "sha": "5a13362a35a3c8ce98c6b88fda596ba45f91305b",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/metadata/project-headers.lock.json",
+      "size": 2451,
+      "sha": "ee7e575ed6dd6a4689918283db3410f9b708217e",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/package.json",
+      "size": 2358,
+      "sha": "a6548ebd7f395b03a5d40c3da38c6b0b2147a11c",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/src/minimal-startup.s",
+      "size": 400,
+      "sha": "3fbfef444d1e4a149108013902fa3b3033c88493",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "controllers/stm32g431cb/src/startup.s",
+      "size": 11661,
+      "sha": "8fd35a0ad47e4049a8655eb4fa471806de7bfd67",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "libraries/can/3.0.0/mcu_can.h",
+      "size": 2317,
+      "sha": "17a2e335ae60a4fe6fad3fbadf0860df357116aa",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "libraries/clock/1.0.0/mcu_clock.h",
+      "size": 654,
+      "sha": "883f0e1eec63a330c710bd83063945a73aa9f30a",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "libraries/clock/2.0.0/mcu_clock.h",
+      "size": 1058,
+      "sha": "041a2e5c5ca2063eb110d74f1be845ee4c085afb",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "libraries/gpio/3.0.0/mcu_gpio.h",
+      "size": 2368,
+      "sha": "4982e5d1d77999b766fd92a68e0c0ad6d47b040f",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "libraries/uart/3.0.0/mcu_uart.h",
+      "size": 2163,
+      "sha": "488635144d53565a11bc1f4f82dfba069e21d3ad",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "webmcu-collection.json",
+      "size": 26354,
+      "sha": "74f3a9934670fdb32739c6bf6ff4a4d5de518b25",
+      "type": "blob",
+      "mode": "100644"
+    },
+    {
+      "path": "webmcu-libraries.json",
+      "size": 12414,
+      "sha": "6362e38340bbdeec07aa0b0779718cf8e7cec774",
+      "type": "blob",
+      "mode": "100644"
+    }
+  ]
+}
