@@ -1,18 +1,23 @@
 /* UART-Bibliothek: UART::Instance::Port3, PB10 TX / PB11 RX, 115200 Baud, 8N1.
    USB-UART mit 3,3-V-Pegeln: TX/RX kreuzen und GND verbinden. */
 #include "mcu_gpio.h"
+#include "mcu_clock.h"
 #include "mcu_uart.h"
+volatile bool clock_ready = false;
 volatile uint32_t received_bytes = 0, receive_errors = 0, transmit_errors = 0;
 volatile uint8_t last_byte = 0;
 volatile bool uart_ready = false;
 extern "C" int main() {
+  clock_ready = Clock::select(Clock::Source::External);
+  if (!clock_ready)
+    for (;;) __asm volatile("nop");
   GPIO tx(GPIO::Port::B, 10), rx(GPIO::Port::B, 11);
   UART serial(UART::Instance::Port3);
   tx.enableClock();
   tx.alternate(7);
   rx.alternate(7);
   rx.pull(GPIO::PullUp);
-  uart_ready = serial.begin(16000000, 115200);
+  uart_ready = serial.begin(Clock::frequencyHz(), 115200);
   if (!uart_ready)
     for (;;)
       __asm volatile("nop");

@@ -11,6 +11,7 @@
     "defines": [],
     "includePaths": [
       ".",
+      "lib/clock",
       "lib/gpio"
     ],
     "cStandard": "c17",
@@ -20,6 +21,7 @@
   },
   "active": "main.cpp",
   "watches": [
+    "clock_ready",
     "toggles"
   ]
 }

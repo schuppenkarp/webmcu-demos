@@ -180,6 +180,26 @@
           "sha256": "4c74d288d11a2b5e6b0470cd65121a94830f345dd64dca0b8228291e11e6bf59"
         }
       ]
+    },
+    {
+      "id": "clock",
+      "version": "1.0.0",
+      "title": "Clock · Taktquelle wählen",
+      "controller": "STM32G431CB",
+      "description": "Interner HSI16 oder externer 8-MHz-Oszillator: PF0 Eingang, PF1 Enable aktiv high. HSE-Bypass und PLL auf 168 MHz (M=2, N=84, R=2), Busse /1. Vor Peripherie und Interrupts aufrufen; begrenzte Wartezeiten.",
+      "usage": "#include \"mcu_clock.h\"\n\nif (!Clock::select(Clock::Source::External)) {\n  for (;;) {} // Taktstart fehlgeschlagen\n}\nuint32_t clockHz = Clock::frequencyHz();\n// Alternativ: Clock::select(Clock::Source::Internal);",
+      "files": [
+        {
+          "name": "mcu_clock.h",
+          "path": "libraries/clock/1.0.0/mcu_clock.h",
+          "sha256": "007e2a0aa4ed2b39e3c56ffbc0716ceb37c053b94bbe5bc6c7a75295b883f2e6"
+        },
+        {
+          "name": "mcu_clock.cpp",
+          "path": "controllers/stm32g431cb/libraries/clock/1.0.0/mcu_clock.cpp",
+          "sha256": "62a14b3c54d75702d6f9889333763589d7785186b14fbe9524487f8fd234da60"
+        }
+      ]
     }
   ]
 }

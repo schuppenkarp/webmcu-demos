@@ -11,6 +11,7 @@
     "defines": [],
     "includePaths": [
       ".",
+      "lib/clock",
       "lib/gpio",
       "lib/can"
     ],
@@ -21,6 +22,7 @@
   },
   "active": "main.cpp",
   "watches": [
+    "clock_ready",
     "can_ready",
     "sent_frames",
     "received_frames",
