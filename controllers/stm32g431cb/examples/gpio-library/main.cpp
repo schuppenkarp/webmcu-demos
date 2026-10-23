@@ -5,7 +5,13 @@
 volatile bool clock_ready = false;
 volatile uint32_t toggles = 0;
 extern "C" int main() {
-  clock_ready = Clock::select(Clock::Source::External);
+  // Board wiring: enable the external 8 MHz oscillator before clock setup.
+  GPIO oscillator_enable(GPIO::Port::F, 1);
+  oscillator_enable.enableClock();
+  oscillator_enable.write(true);
+  oscillator_enable.mode(GPIO::PushPull);
+  clock_ready = Clock::configure(Clock::Source::ExternalOscillator,
+                                  8000000u, 168000000u) != 0;
   if (!clock_ready)
     for (;;) __asm volatile("nop");
   GPIO led(GPIO::Port::B, 1);

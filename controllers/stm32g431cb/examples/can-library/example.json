@@ -22,6 +22,7 @@
   },
   "active": "main.cpp",
   "watches": [
+    "Clock::settings",
     "clock_ready",
     "can_ready",
     "sent_frames",

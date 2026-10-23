@@ -6,25 +6,25 @@
       "id": "gpio-library",
       "controller": "STM32G431CB",
       "name": "01 · GPIO-Bibliothek · PB1",
-      "description": "Externer 8-MHz-Oszillator an PF0, Enable PF1 = high; HSE-Bypass + PLL auf 168 MHz (M=2, N=84, R=2). Clock::select vor der Peripherieinitialisierung, clock_ready zeigt den Erfolg.\n\nC++-Klasse GPIO. Porttakt, Push-Pull/Open-Drain, Ein-/Ausgang, Pull-Widerstände, Geschwindigkeit und Alternate Function. Pinnummern 0–15; keine Bitmasken. Gemeinsame API; STM32G431CB-Adapter.",
+      "description": "Externer 8-MHz-Oszillator an PF0, Enable PF1 = high; HSE-Bypass + PLL auf 168 MHz (PLL automatisch). Clock::configure vor der Peripherieinitialisierung, clock_ready zeigt den Erfolg.\n\nC++-Klasse GPIO. Porttakt, Push-Pull/Open-Drain, Ein-/Ausgang, Pull-Widerstände, Geschwindigkeit und Alternate Function. Pinnummern 0–15; keine Bitmasken. Gemeinsame API; STM32G431CB-Adapter.",
       "archive": "packages/collections/stm32/gpio-library.zip",
-      "sha256": "91f729914ef422a25b13c739601f3e0a156b983428e75f46be7b5cabe693a912"
+      "sha256": "e04591017ae7908aa4f62afc5248e3cfad8bfc9a958e6f237190942d9d3e0fd3"
     },
     {
       "id": "uart-library",
       "controller": "STM32G431CB",
       "name": "02 · UART-Bibliothek · USART3 Echo (PB10/PB11)",
-      "description": "Externer 8-MHz-Oszillator an PF0, Enable PF1 = high; HSE-Bypass + PLL auf 168 MHz (M=2, N=84, R=2). Clock::select vor der Peripherieinitialisierung, clock_ready zeigt den Erfolg.\n\nUSART3 Echo: PB10 = TX, PB11 = RX, AF7. 115200 Baud, 8N1; PCLK1 = 168 MHz, PLL aus externen 8 MHz. USB-UART mit 3,3-V-Pegeln: PB10 an RX, PB11 an TX und GND verbinden.\n\nC++-Klasse UART. USART1/2/3, UART4 und LPUART1. 8N1 mit PCLK, einfache Textausgabe und nicht blockierende Byte-API. Pins separat konfigurieren. Pollbudget ist kein Millisekunden-Timeout. Gemeinsame API; STM32G431CB-Adapter.",
+      "description": "Externer 8-MHz-Oszillator an PF0, Enable PF1 = high; HSE-Bypass + PLL auf 168 MHz (PLL automatisch). Clock::configure vor der Peripherieinitialisierung, clock_ready zeigt den Erfolg.\n\nUSART3 Echo: PB10 = TX, PB11 = RX, AF7. 115200 Baud, 8N1; PCLK1 = 168 MHz, PLL aus externen 8 MHz. USB-UART mit 3,3-V-Pegeln: PB10 an RX, PB11 an TX und GND verbinden.\n\nC++-Klasse UART. USART1/2/3, UART4 und LPUART1. 8N1 mit PCLK, einfache Textausgabe und nicht blockierende Byte-API. Pins separat konfigurieren. Pollbudget ist kein Millisekunden-Timeout. Gemeinsame API; STM32G431CB-Adapter.",
       "archive": "packages/collections/stm32/uart-library.zip",
-      "sha256": "a2f0d26289d81ff77616fe573cdda0dd00972175a27ac7eb7d19caee9de5fa6b"
+      "sha256": "b16b2a6931e66740f61309732d53666fa68adbb723f5f8a987c698967c4b7839"
     },
     {
       "id": "can-library",
       "controller": "STM32G431CB",
       "name": "03 · CAN-Bibliothek · Loopback / Bus",
-      "description": "Externer 8-MHz-Oszillator an PF0, Enable PF1 = high; HSE-Bypass + PLL auf 168 MHz (M=2, N=84, R=2). Clock::select vor der Peripherieinitialisierung, clock_ready zeigt den Erfolg.\n\nPC13_CAN_disable wird bei der Initialisierung auf low gesetzt. CAN: 500 kbit/s, PB8 RX / PB9 TX (AF9). SysTick: 1 ms bei 168 MHz.\n\nC++-Klasse CAN. Klassisches CAN auf FDCAN1: 11-/29-Bit-IDs, 0–8 Bytes, alle IDs angenommen. Drei TX-/RX-Plätze, Polling, Bus-Off-/Überlaufmeldung. Internes Loopback für den Einstieg. Kein CAN FD. Gemeinsame API; STM32G431CB-Adapter.",
+      "description": "Externer 8-MHz-Oszillator an PF0, Enable PF1 = high; HSE-Bypass + PLL auf 168 MHz (PLL automatisch). Clock::configure vor der Peripherieinitialisierung, clock_ready zeigt den Erfolg.\n\nPC13_CAN_disable wird bei der Initialisierung auf low gesetzt. CAN: 500 kbit/s, PB8 RX / PB9 TX (AF9). SysTick: 1 ms bei 168 MHz.\n\nC++-Klasse CAN. Klassisches CAN auf FDCAN1: 11-/29-Bit-IDs, 0–8 Bytes, alle IDs angenommen. Drei TX-/RX-Plätze, Polling, Bus-Off-/Überlaufmeldung. Internes Loopback für den Einstieg. Kein CAN FD. Gemeinsame API; STM32G431CB-Adapter.",
       "archive": "packages/collections/stm32/can-library.zip",
-      "sha256": "777963c8267279adfd2dd068a15a05a2f1322ab2b13ab6cf699e3f382ede2695"
+      "sha256": "2864e0424255ceabeae8b8f94e869e15d1c58e8b304ca0b6e9c181cd23592630"
     },
     {
       "id": "minimal-addresses",
@@ -32,7 +32,7 @@
       "name": "04 · Mini-Blink · direkte Adressen",
       "description": "PB1 direkt über Speicheradressen. Nur stdint.h für feste Datentypen; keine Peripheriebibliothek oder Init-Funktionen.",
       "archive": "packages/collections/stm32/minimal-addresses.zip",
-      "sha256": "aec97c8d382c66b13429c637fd74193db5cc8b7ee8f03e7ca960332780286d4c"
+      "sha256": "379d00f192166fd6f996635ed554a28cb5eb97b261dfb24029949cf932f11f08"
     },
     {
       "id": "minimal-registers",
@@ -40,7 +40,7 @@
       "name": "05 · Mini-Blink · ST-Registernamen",
       "description": "Derselbe PB1-Blinker mit RCC/ GPIOB und originalen ST-Registerdefinitionen.",
       "archive": "packages/collections/stm32/minimal-registers.zip",
-      "sha256": "474278ab47ee4d99d9acfd7381b86c229108611bbef7fdb677685acd87e5b75d"
+      "sha256": "443ec0da8bfddcfa37a8e052161e365c7475eeed17f2ed89717a2b0a8d247c40"
     }
   ]
 }

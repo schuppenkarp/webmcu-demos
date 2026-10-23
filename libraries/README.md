@@ -36,20 +36,36 @@ Neue Controller implementieren dieselben Klassen in eigenen .cpp-Adaptern.
 Der Katalog nennt pro Controller genau Header plus Adapter und deren SHA-256.
 Alle API- oder Adapteränderungen erhalten neue Revisionen.
 
-## Clock 1.0.0: 168 MHz aus externen 8 MHz
 
-Generischer Header unter libraries/clock/1.0.0, Adapter unter
-controllers/stm32g431cb/libraries/clock/1.0.0 (je .h + .cpp).
-Clock::select(Clock::Source::External): PF1 high, HSE-Bypass an PF0,
-PLL M=2/N=84/R=2, 168 MHz für SYSCLK/HCLK/PCLK1/PCLK2. Range 1 Boost,
-Flash 4 Wait States, AHB /2-Zwischenschritt beim Taktwechsel.
-Internal wählt HSI16 und deaktiviert den externen Oszillator.
-Vor Peripherie/Interrupts aufrufen; unbekannte PLL/CSS/Busprescaler ablehnen.
-Alle Wartezeiten sind begrenzt, false nie ignorieren. Bei Umschalt-Timeout
-bleiben Quellen an; frequencyHz() ist eine Konfigurationsauskunft, keine Messung.
 
-GPIO-, USART3- und CAN-Demo nutzen 168 MHz. UART: 115200/8N1;
-CAN: 500 kbit/s und SysTick 1 ms. PC13_CAN_disable wird bei Init low gesetzt.
-Die beiden Minimal-Blinker bleiben bei HSI16 und ohne Clock-Library.
-Referenz: RM0440 (HSE bypass, PLL, Voltage scaling, Flash latency).
-Softwareprüfungen ersetzen keine physische Oszillator-/CAN-Abnahme.
+## Clock 2.0.0
+
+Generische API: libraries/clock/2.0.0/mcu_clock.h; STM32G431CB-Implementierung:
+controllers/stm32g431cb/libraries/clock/2.0.0/mcu_clock.cpp.
+
+```cpp
+uint32_t actual = Clock::configure(
+    Clock::Source::ExternalOscillator, 8000000u, 168000000u);
+if (!actual) { /* ungültige Frequenz oder Hardware-Timeout */ }
+uint32_t active = Clock::frequencyHz();
+```
+
+Quellen: Internal (G431 HSI16), ExternalCrystal, ExternalOscillator (HSE-Bypass).
+Der Adapter sucht PLL M/N/R automatisch innerhalb der Hardwaregrenzen.
+Nur exakt erreichbare Frequenzen werden akzeptiert, keine stille Rundung.
+CPU maximal 170 MHz; Busse /1; Range 1 Boost und vier Flash-Wartezyklen.
+Aufruf bei Programmstart vor Peripherie/Interrupts. Unverträgliche
+PLL-Peripherienutzung, CSS oder Busprescaler werden abgewiesen.
+Clock::settings ist ein RAM-Objekt für Debugger und Live-Watches:
+source, sourceHz, requestedHz, actualHz, pllM/N/R, pllEnabled, valid.
+Bei Fehler ist valid=false; der aktive Takt lässt sich separat abfragen.
+frequencyHz() dekodiert RCC mit der angegebenen externen Frequenz,
+misst aber keinen physischen Oszillator. Das Board muss elektrisch stimmen.
+
+Enable-GPIOs gehören zum Projekt. Unsere Demos setzen PF1 HIGH, bevor
+Clock auf den externen 8-MHz-Oszillator und 168 MHz umschaltet.
+PC13_CAN_disable wird im CAN-Projekt LOW gesetzt. Beide Minimal-Blinker
+bleiben bei HSI16. UART-Baudrate, CAN und SysTick verwenden den aktiven Takt.
+
+Referenzen: STM32G431 DS12589 und RM0440.
+WASM-Builds und ARM-Registersimulation ersetzen keine Hardwareabnahme.

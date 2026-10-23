@@ -22,6 +22,7 @@
   },
   "active": "main.cpp",
   "watches": [
+    "Clock::settings",
     "clock_ready",
     "uart_ready",
     "received_bytes",

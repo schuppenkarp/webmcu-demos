@@ -21,6 +21,7 @@
   },
   "active": "main.cpp",
   "watches": [
+    "Clock::settings",
     "clock_ready",
     "toggles"
   ]

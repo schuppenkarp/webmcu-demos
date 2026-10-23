@@ -200,6 +200,26 @@
           "sha256": "62a14b3c54d75702d6f9889333763589d7785186b14fbe9524487f8fd234da60"
         }
       ]
+    },
+    {
+      "id": "clock",
+      "version": "2.0.0",
+      "title": "Clock · Taktquelle wählen",
+      "controller": "STM32G431CB",
+      "description": "Taktquelle Internal / ExternalCrystal / ExternalOscillator, Eingangsfrequenz und CPU-Wunschfrequenz. Automatische PLL-Berechnung bis 170 MHz, exakte Frequenz oder Fehler. Clock::settings im Debugger, frequencyHz() liest den aktiven Takt. Enable-Pins bleiben im Projekt.",
+      "usage": "uint32_t hz = Clock::configure(Clock::Source::ExternalOscillator, 8000000u, 168000000u);\nif (!hz) { /* Fehler behandeln */ }\n// Watch: Clock::settings; Abfrage: Clock::frequencyHz()",
+      "files": [
+        {
+          "name": "mcu_clock.h",
+          "path": "libraries/clock/2.0.0/mcu_clock.h",
+          "sha256": "2cf2ba821889a2212fbe3fe10a5e5e3e598ce885b97acf4403a03efdc308628d"
+        },
+        {
+          "name": "mcu_clock.cpp",
+          "path": "controllers/stm32g431cb/libraries/clock/2.0.0/mcu_clock.cpp",
+          "sha256": "830066cb25e408deba8d02a69775129364dda519a645773182a2889e9d72e391"
+        }
+      ]
     }
   ]
 }

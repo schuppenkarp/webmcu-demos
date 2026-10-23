@@ -8,7 +8,13 @@ volatile uint32_t received_bytes = 0, receive_errors = 0, transmit_errors = 0;
 volatile uint8_t last_byte = 0;
 volatile bool uart_ready = false;
 extern "C" int main() {
-  clock_ready = Clock::select(Clock::Source::External);
+  // Board wiring: enable the external 8 MHz oscillator before clock setup.
+  GPIO oscillator_enable(GPIO::Port::F, 1);
+  oscillator_enable.enableClock();
+  oscillator_enable.write(true);
+  oscillator_enable.mode(GPIO::PushPull);
+  clock_ready = Clock::configure(Clock::Source::ExternalOscillator,
+                                  8000000u, 168000000u) != 0;
   if (!clock_ready)
     for (;;) __asm volatile("nop");
   GPIO tx(GPIO::Port::B, 10), rx(GPIO::Port::B, 11);
